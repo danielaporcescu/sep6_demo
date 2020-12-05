@@ -1,0 +1,1 @@
+export const FLIGHTS_PER_MONTH_URL = "https://uaa.azurewebsites.net/api/flights-per-month"
