@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import axios from "axios";
-import { FLIGHTS_PER_MONTH_FROM_ORIGINS_URL } from "../../helpers/url";
+import { FLIGHTS_PER_MONTH_FROM_ORIGINS_PERCENTAGE_URL } from "../../helpers/url";
 import classes from "./BarChart.module.css";
 
-function MultipleBarChart() {
+function PercentageBarChart() {
   const [chartData, setChartData] = useState({});
 
   const chart = () => {
@@ -14,7 +14,7 @@ function MultipleBarChart() {
     let originLGA = [];
 
     axios
-      .get(FLIGHTS_PER_MONTH_FROM_ORIGINS_URL)
+      .get(FLIGHTS_PER_MONTH_FROM_ORIGINS_PERCENTAGE_URL)
       .then((res) => {
         for (const dataObj of res.data) {
           months.push(parseInt(dataObj.month));
@@ -27,22 +27,22 @@ function MultipleBarChart() {
           datasets: [
             {
               label: "ERW",
-              backgroundColor: "rgba(239,131,84,1)",
+              backgroundColor: "rgba(85,53,85,1)",
               borderWidth: 2,
               data: originJFK,
             },
             {
               label: "JFK",
-              backgroundColor: "rgba(176,45,12,1)",
+              backgroundColor: "rgba(150,197,176,1)",
               borderWidth: 2,
               data: originEWR,
             },
             {
               label: "LGA",
-              backgroundColor: "rgba(75,192,192,1)",
+              backgroundColor: "rgba(173,241,210,1)",
               borderWidth: 2,
               data: originLGA,
-            },
+            }
           ],
         });
       })
@@ -60,7 +60,7 @@ function MultipleBarChart() {
         data={chartData}
         options={{
           responsive: true,
-          title: { text: "Flights per month from destination", display: true },
+          title: { text: "Flights per month from destination PERCENTAGE", display: true },
           scales: {
             yAxes: [
               {
@@ -69,6 +69,7 @@ function MultipleBarChart() {
                   maxTicksLimit: 10,
                   beginAtZero: true,
                 },
+                stacked:true,
                 gridLines: {
                   display: false,
                 },
@@ -76,6 +77,7 @@ function MultipleBarChart() {
             ],
             xAxes: [
               {
+                stacked:true,
                 gridLines: {
                   display: false,
                 },
@@ -88,5 +90,5 @@ function MultipleBarChart() {
   );
 }
 
-export default MultipleBarChart;
+export default PercentageBarChart;
 
