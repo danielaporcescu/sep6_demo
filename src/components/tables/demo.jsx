@@ -7,6 +7,7 @@
 //         stats: [],
 //         }
 //     constructor(props) {
+//         this.tableRef = React.createRef();
 //         super(props);
 //     render() {
 //     return (
@@ -26,5 +27,5 @@
 //     </div>
 //     )
 //     }
-//     }
+//     }}
 //     export default FlightsPerTop10DestinationTable;
