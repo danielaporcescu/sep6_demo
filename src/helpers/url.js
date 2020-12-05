@@ -2,4 +2,4 @@ export const FLIGHTS_PER_MONTH_URL = "https://uaa.azurewebsites.net/api/flights-
 export const FLIGHTS_PER_MONTH_FROM_ORIGINS_URL = "https://uaa.azurewebsites.net/api/flights-per-month-from-dest"
 export const FLIGHTS_PER_MONTH_FROM_ORIGINS_PERCENTAGE_URL = "https://uaa.azurewebsites.net/api/flights-per-month-from-dest-percentage"
 export const FLIGHTS_PER_TOP10_DESTINATIONS_PER_ORIGINS_URL = "https://uaa.azurewebsites.net/api/top-10-dest-nr-of-flights-per-main-origins"
-
+export const FLIGHTS_TOP10_DESTINATIONS = "https://uaa.azurewebsites.net/api/top-10-dest-nr-of-flights";

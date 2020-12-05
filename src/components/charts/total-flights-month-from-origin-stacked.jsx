@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import axios from "axios";
-import { FLIGHTS_PER_MONTH_FROM_ORIGINS_PERCENTAGE_URL } from "../../helpers/url";
+import { FLIGHTS_PER_MONTH_FROM_ORIGINS_URL } from "../../helpers/url";
 import classes from "./BarChart.module.css";
 
-function TotalFlightsPetMonthFromOriginPercentage() {
+function TotalFlightsPetMonthFromOriginStacked() {
   const [chartData, setChartData] = useState({});
 
   const chart = () => {
@@ -14,7 +14,7 @@ function TotalFlightsPetMonthFromOriginPercentage() {
     let originLGA = [];
 
     axios
-      .get(FLIGHTS_PER_MONTH_FROM_ORIGINS_PERCENTAGE_URL)
+      .get(FLIGHTS_PER_MONTH_FROM_ORIGINS_URL)
       .then((res) => {
         for (const dataObj of res.data) {
           months.push(parseInt(dataObj.month));
@@ -27,19 +27,19 @@ function TotalFlightsPetMonthFromOriginPercentage() {
           datasets: [
             {
               label: "ERW",
-              backgroundColor: "rgba(85,53,85,1)",
+              backgroundColor: "#ADFCF9",
               borderWidth: 2,
               data: originEWR,
             },
             {
               label: "JFK",
-              backgroundColor: "rgba(150,197,176,1)",
+              backgroundColor: "#89A894",
               borderWidth: 2,
               data: originJFK,
             },
             {
               label: "LGA",
-              backgroundColor: "rgba(173,241,210,1)",
+              backgroundColor: "#341C1C",
               borderWidth: 2,
               data: originLGA,
             },
@@ -61,7 +61,7 @@ function TotalFlightsPetMonthFromOriginPercentage() {
         options={{
           responsive: true,
           title: {
-            text: "Total number of flights per month from the three origins in one plot. STACKED PERCENTAGE",
+            text: "Total number of flights per month from the three origins in one plot. FREQUENCY STACKED",
             display: true,
           },
           scales: {
@@ -93,4 +93,4 @@ function TotalFlightsPetMonthFromOriginPercentage() {
   );
 }
 
-export default TotalFlightsPetMonthFromOriginPercentage;
+export default TotalFlightsPetMonthFromOriginStacked;

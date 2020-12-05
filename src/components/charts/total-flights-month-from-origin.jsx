@@ -60,7 +60,7 @@ function TotalFlightsPerMonthFromOrigins() {
         data={chartData}
         options={{
           responsive: true,
-          title: { text: "Total Flights per month from origin", display: true },
+          title: { text: "Total number of flights per month from the three origins in one plot. FREQUENCY", display: true },
           scales: {
             yAxes: [
               {
