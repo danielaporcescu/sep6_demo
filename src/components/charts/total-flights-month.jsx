@@ -45,7 +45,7 @@ function BarChart() {
           data={chartData}
           options={{
             responsive: true,
-            title: { text: "Flights per month", display: true },
+            title: { text: "Total flights per month", display: true },
             scales: {
               yAxes: [
                 {

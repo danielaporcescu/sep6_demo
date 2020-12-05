@@ -3,10 +3,10 @@
 // import withListLoading from "./ListLoading";
 import React from "react";
 import "./App.css";
-import BarChart from "../src/components/charts/BarChart";
-import MultipleBarChart from "../src/components/charts/MultipleBarsChart";
-import PercentageBarChart from "../src/components/charts/PercentageBarChart";
-import TopTenDestinationsChart from "../src/components/charts/top-10-destinations-per-origin-chart";
+import BarChart from "../src/components/charts/total-flights-month";
+import MultipleBarChart from "./components/charts/total-flights-minth-from-origin";
+import PercentageBarChart from "./components/charts/total-flights-month-percent";
+import TopTenDestinationsChart from "./components/charts/top-10-destinations-per-origin";
 
 
 
