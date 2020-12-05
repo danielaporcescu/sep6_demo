@@ -43,7 +43,6 @@ function BarChart() {
     chart();
   }, []);
   return (
-    <p>
       <div className={classes.BarChart}>
         <Bar
           data={chartData}
@@ -74,7 +73,6 @@ function BarChart() {
           }}
         />
       </div>
-    </p>
   );
 }
 
