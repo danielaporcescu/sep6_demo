@@ -14,7 +14,7 @@ function BarChart() {
       .get(FLIGHTS_PER_MONTH_URL)
       .then((res) => {
         for (const dataObj of res.data) {
-          flights.push(pareInt(dataObj.numberOfFlights));
+          flights.push(parseInt(dataObj.numberOfFlights));
           months.push(parseInt(dataObj.month));
         }
         setChartData({
