@@ -1,45 +1,45 @@
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import axios from "axios";
-import { FLIGHTS_PER_MONTH_FROM_ORIGINS_URL } from "../../helpers/url";
+import { FLIGHTS_PER_TOP10_DESTINATIONS_PER_ORIGINS_URL } from "../../helpers/url";
 import classes from "./BarChart.module.css";
 
-function MultipleBarChart() {
+function TopTenDestinationsChart() {
   const [chartData, setChartData] = useState({});
 
   const chart = () => {
-    let months = [];
+    let airportNames = [];
     let originEWR = [];
     let originJFK = [];
     let originLGA = [];
 
     axios
-      .get(FLIGHTS_PER_MONTH_FROM_ORIGINS_URL)
+      .get(FLIGHTS_PER_TOP10_DESTINATIONS_PER_ORIGINS_URL)
       .then((res) => {
         for (const dataObj of res.data) {
-          months.push(parseInt(dataObj.month));
+          airportNames.push(dataObj.airportName);
           originEWR.push(parseInt(dataObj.ewr));
           originJFK.push(parseInt(dataObj.jfk));
           originLGA.push(parseInt(dataObj.lga));
         }
         setChartData({
-          labels: months,
+          labels: airportNames,
           datasets: [
             {
               label: "ERW",
-              backgroundColor: "rgba(239,131,84,1)",
+              backgroundColor: "rgba(0,59,54,1)",
               borderWidth: 2,
               data: originEWR,
             },
             {
               label: "JFK",
-              backgroundColor: "rgba(176,45,12,1)",
+              backgroundColor: "rgba(233,138,21,1)",
               borderWidth: 2,
-              data: originJFK ,
+              data: originJFK,
             },
             {
               label: "LGA",
-              backgroundColor: "rgba(75,192,192,1)",
+              backgroundColor: "rgba(89,17,77,1)",
               borderWidth: 2,
               data: originLGA,
             },
@@ -60,7 +60,10 @@ function MultipleBarChart() {
         data={chartData}
         options={{
           responsive: true,
-          title: { text: "Flights per month from destination", display: true },
+          title: {
+            text: "TOP 10 destinations, Flights nr per origin",
+            display: true,
+          },
           scales: {
             yAxes: [
               {
@@ -88,5 +91,4 @@ function MultipleBarChart() {
   );
 }
 
-export default MultipleBarChart;
-
+export default TopTenDestinationsChart;

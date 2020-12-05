@@ -29,20 +29,20 @@ function PercentageBarChart() {
               label: "ERW",
               backgroundColor: "rgba(85,53,85,1)",
               borderWidth: 2,
-              data: originJFK,
+              data: originEWR,
             },
             {
               label: "JFK",
               backgroundColor: "rgba(150,197,176,1)",
               borderWidth: 2,
-              data: originEWR,
+              data: originJFK,
             },
             {
               label: "LGA",
               backgroundColor: "rgba(173,241,210,1)",
               borderWidth: 2,
               data: originLGA,
-            }
+            },
           ],
         });
       })
@@ -60,7 +60,10 @@ function PercentageBarChart() {
         data={chartData}
         options={{
           responsive: true,
-          title: { text: "Flights per month from destination PERCENTAGE", display: true },
+          title: {
+            text: "Flights per month from destination PERCENTAGE",
+            display: true,
+          },
           scales: {
             yAxes: [
               {
@@ -69,7 +72,7 @@ function PercentageBarChart() {
                   maxTicksLimit: 10,
                   beginAtZero: true,
                 },
-                stacked:true,
+                stacked: true,
                 gridLines: {
                   display: false,
                 },
@@ -77,7 +80,7 @@ function PercentageBarChart() {
             ],
             xAxes: [
               {
-                stacked:true,
+                stacked: true,
                 gridLines: {
                   display: false,
                 },
@@ -91,4 +94,3 @@ function PercentageBarChart() {
 }
 
 export default PercentageBarChart;
-
