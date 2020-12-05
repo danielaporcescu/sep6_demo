@@ -8,7 +8,7 @@ import TotalFlightsPerMonthFromOrigins from "./components/charts/total-flights-m
 import TotalFlightsPetMonthFromOriginPercentage from "./components/charts/total-flights-month-from-origin-percent";
 import TopTenDestinationsPerOrigin from "./components/charts/top-10-destinations-per-origin";
 import TotalFlightsPetMonthFromOriginStacked from "./components/charts/total-flights-month-from-origin-stacked";
-import BasicTable from "./components/tables/top-10-destinations";
+// import BasicTable from "./components/tables/top-10-destinations";
 
 
 
