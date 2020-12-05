@@ -6,8 +6,8 @@ import classes from "./BarChart.module.css";
 
 function BarChart() {
   const [chartData, setChartData] = useState({});
-  const [flightsNumber, setFlightsNumber] = useState([]);
-  const [monthNumber, setMonthNumber] = useState([]);
+//   const [flightsNumber, setFlightsNumber] = useState([]);
+//   const [monthNumber, setMonthNumber] = useState([]);
 
   const chart = () => {
     let flights = [];
