@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import axios from "axios";
-import { FLIGHTS_PER_MONTH_FROM_ORIGINS_PERCENTAGE_URL } from "../../helpers/url";
+import { FLIGHTS_PER_MONTH_FROM_ORIGINS_URL } from "../../helpers/url";
 import classes from "./BarChart.module.css";
 
-function PercentageBarChart() {
+function TotalFlightsPerMonthFromOrigins() {
   const [chartData, setChartData] = useState({});
 
   const chart = () => {
@@ -14,7 +14,7 @@ function PercentageBarChart() {
     let originLGA = [];
 
     axios
-      .get(FLIGHTS_PER_MONTH_FROM_ORIGINS_PERCENTAGE_URL)
+      .get(FLIGHTS_PER_MONTH_FROM_ORIGINS_URL)
       .then((res) => {
         for (const dataObj of res.data) {
           months.push(parseInt(dataObj.month));
@@ -27,19 +27,19 @@ function PercentageBarChart() {
           datasets: [
             {
               label: "ERW",
-              backgroundColor: "rgba(85,53,85,1)",
+              backgroundColor: "rgba(239,131,84,1)",
               borderWidth: 2,
               data: originEWR,
             },
             {
               label: "JFK",
-              backgroundColor: "rgba(150,197,176,1)",
+              backgroundColor: "rgba(176,45,12,1)",
               borderWidth: 2,
-              data: originJFK,
+              data: originJFK ,
             },
             {
               label: "LGA",
-              backgroundColor: "rgba(173,241,210,1)",
+              backgroundColor: "rgba(75,192,192,1)",
               borderWidth: 2,
               data: originLGA,
             },
@@ -60,10 +60,7 @@ function PercentageBarChart() {
         data={chartData}
         options={{
           responsive: true,
-          title: {
-            text: "Flights per month from destination PERCENTAGE",
-            display: true,
-          },
+          title: { text: "Total Flights per month from origin", display: true },
           scales: {
             yAxes: [
               {
@@ -72,7 +69,6 @@ function PercentageBarChart() {
                   maxTicksLimit: 10,
                   beginAtZero: true,
                 },
-                stacked: true,
                 gridLines: {
                   display: false,
                 },
@@ -80,7 +76,6 @@ function PercentageBarChart() {
             ],
             xAxes: [
               {
-                stacked: true,
                 gridLines: {
                   display: false,
                 },
@@ -93,4 +88,5 @@ function PercentageBarChart() {
   );
 }
 
-export default PercentageBarChart;
+export default TotalFlightsPerMonthFromOrigins;
+

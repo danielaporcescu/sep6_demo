@@ -4,7 +4,7 @@ import axios from "axios";
 import { FLIGHTS_PER_TOP10_DESTINATIONS_PER_ORIGINS_URL } from "../../helpers/url";
 import classes from "./BarChart.module.css";
 
-function TopTenDestinationsChart() {
+function TopTenDestinationsPerOrigin() {
   const [chartData, setChartData] = useState({});
 
   const chart = () => {
@@ -91,4 +91,4 @@ function TopTenDestinationsChart() {
   );
 }
 
-export default TopTenDestinationsChart;
+export default TopTenDestinationsPerOrigin;

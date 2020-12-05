@@ -5,7 +5,7 @@ import axios from "axios";
 import { FLIGHTS_PER_MONTH_URL } from "../../helpers/url";
 import classes from "./BarChart.module.css";
 
-function BarChart() {
+function TotalFlightsPerMonth() {
   const [chartData, setChartData] = useState({});
 
   const chart = () => {
@@ -24,7 +24,6 @@ function BarChart() {
             {
               label: "month",
               backgroundColor: "rgba(75,192,192,1)",
-            //   borderColor: "rgba(0,0,0,1)",
               borderWidth: 2,
               data: flights,
             },
@@ -73,4 +72,4 @@ function BarChart() {
   );
 }
 
-export default BarChart;
+export default TotalFlightsPerMonth;
