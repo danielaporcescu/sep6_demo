@@ -6,8 +6,6 @@ import classes from "./BarChart.module.css";
 
 function BarChart() {
   const [chartData, setChartData] = useState({});
-//   const [flightsNumber, setFlightsNumber] = useState([]);
-//   const [monthNumber, setMonthNumber] = useState([]);
 
   const chart = () => {
     let flights = [];
@@ -15,12 +13,10 @@ function BarChart() {
     axios
       .get(FLIGHTS_PER_MONTH_URL)
       .then((res) => {
-        console.log(res);
         for (const dataObj of res.data) {
           flights.push(dataObj.numberOfFlights);
           months.push(parseInt(dataObj.month));
         }
-        console.log(flights);
         setChartData({
           labels: months,
           datasets: [
