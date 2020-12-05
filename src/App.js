@@ -8,9 +8,10 @@ import BarChart from "../src/components/charts/BarChart";
 
 function App() {
   return (
-
-        <BarChart />
-
+    <p>
+      <h1>test</h1>
+      <BarChart />
+    </p>
   );
 }
 

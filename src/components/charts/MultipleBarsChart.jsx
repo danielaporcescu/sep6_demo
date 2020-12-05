@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import axios from "axios";
-import {
-  FLIGHTS_PER_MONTH_URL,
-  FLIGHTS_PER_MONTH_FROM_ORIGINS_URL,
-} from "../../helpers/url";
+import { FLIGHTS_PER_MONTH_URL } from "../../helpers/url";
 import classes from "./BarChart.module.css";
 
 function BarChart() {
@@ -42,36 +39,36 @@ function BarChart() {
     chart();
   }, []);
   return (
-    <div className={classes.BarChart}>
-      <Bar
-        data={chartData}
-        options={{
-          responsive: true,
-          title: { text: "Flights per month", display: true },
-          scales: {
-            yAxes: [
-              {
-                ticks: {
-                  autoSkip: true,
-                  maxTicksLimit: 10,
-                  beginAtZero: true,
+      <div className={classes.BarChart}>
+        <Bar
+          data={chartData}
+          options={{
+            responsive: true,
+            title: { text: "Flights per month", display: true },
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    autoSkip: true,
+                    maxTicksLimit: 10,
+                    beginAtZero: true,
+                  },
+                  gridLines: {
+                    display: false,
+                  },
                 },
-                gridLines: {
-                  display: false,
+              ],
+              xAxes: [
+                {
+                  gridLines: {
+                    display: false,
+                  },
                 },
-              },
-            ],
-            xAxes: [
-              {
-                gridLines: {
-                  display: false,
-                },
-              },
-            ],
-          },
-        }}
-      />
-    </div>
+              ],
+            },
+          }}
+        />
+      </div>
   );
 }
 
