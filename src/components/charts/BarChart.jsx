@@ -1,34 +1,50 @@
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import axios from "axios";
-import {
-  FLIGHTS_PER_MONTH_URL,
-  FLIGHTS_PER_MONTH_FROM_ORIGINS_URL,
-} from "../../helpers/url";
+import { FLIGHTS_PER_MONTH_FROM_ORIGINS_URL } from "../../helpers/url";
 import classes from "./BarChart.module.css";
 
-function BarChart() {
+function MultipleBarChart() {
   const [chartData, setChartData] = useState({});
 
   const chart = () => {
-    let flights = [];
     let months = [];
+    let originEWR = [];
+    let originJFK = [];
+    let originLGA = [];
+
     axios
-      .get(FLIGHTS_PER_MONTH_URL)
+      .get(FLIGHTS_PER_MONTH_FROM_ORIGINS_URL)
       .then((res) => {
         for (const dataObj of res.data) {
-          flights.push(parseInt(dataObj.numberOfFlights));
           months.push(parseInt(dataObj.month));
+          originEWR.push(parseInt(dataObj.ewr));
+          originJFK.push(parseInt(dataObj.jfk));
+          originLGA.push(parseInt(dataObj.lga));
         }
         setChartData({
           labels: months,
           datasets: [
             {
-              label: "month",
+              label: "Blue",
+              backgroundColor: "rgba(239,131,84,1)",
+              borderColor: "rgba(0,0,0,1)",
+              borderWidth: 2,
+              data: originJFK,
+            },
+            {
+              label: "Green",
+              backgroundColor: "rgba(176,45,12,1)",
+              borderColor: "rgba(0,0,0,1)",
+              borderWidth: 2,
+              data: originEWR,
+            },
+            {
+              label: "Blue",
               backgroundColor: "rgba(75,192,192,1)",
               borderColor: "rgba(0,0,0,1)",
               borderWidth: 2,
-              data: flights,
+              data: originLGA,
             },
           ],
         });
@@ -75,4 +91,4 @@ function BarChart() {
   );
 }
 
-export default BarChart;
+export default MultipleBarChart;
