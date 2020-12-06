@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 import axios from "axios";
-import { FLIGHTS_PER_MONTH_FROM_ORIGINS_URL } from "../../helpers/url";
+import { FLIGHTS_CHART_DATA } from "../../helpers/url";
 import classes from "./BarChart.module.css";
 
 function TotalFlightsPerMonthFromOrigins() {
@@ -14,9 +14,9 @@ function TotalFlightsPerMonthFromOrigins() {
     let originLGA = [];
 
     axios
-      .get(FLIGHTS_PER_MONTH_FROM_ORIGINS_URL)
+      .get(FLIGHTS_CHART_DATA)
       .then((res) => {
-        for (const dataObj of res.data) {
+        for (const dataObj of res.data.flightsPerMonthFromOrigins) {
           months.push(parseInt(dataObj.month));
           originEWR.push(parseInt(dataObj.ewr));
           originJFK.push(parseInt(dataObj.jfk));
