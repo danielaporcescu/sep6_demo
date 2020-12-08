@@ -32,7 +32,10 @@ function FlightsPage() {
 
   return (
     <div>
-      <TotalFlightsPerMonth data={result.flightsPerMonth} isLoaded={isLoaded} />
+      <TotalFlightsPerMonth 
+      data={result.flightsPerMonth} 
+      isLoaded={isLoaded} 
+      />
       <TotalFlightsPerMonthFromOrigins
         data={result.flightsPerMonthFromOrigins}
         isLoaded={isLoaded}
@@ -52,5 +55,6 @@ function FlightsPage() {
     </div>
   );
 }
+
 
 export default FlightsPage;

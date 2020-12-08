@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React from "react";
 import "./App.css";
 import FlightsPage from "./components/pages/flights-page"
 

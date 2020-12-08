@@ -28,18 +28,25 @@ function TotalFlightsPerMonthFromOrigins({ data, isLoaded }) {
           backgroundColor: "rgba(239,131,84,1)",
           borderWidth: 2,
           data: originEWR,
+          barPercentage: 0.5,
+          barThickness: 6,
+
         },
         {
           label: "JFK",
           backgroundColor: "rgba(176,45,12,1)",
           borderWidth: 2,
           data: originJFK,
+          barPercentage: 0.5,
+          barThickness: 6,
         },
         {
           label: "LGA",
           backgroundColor: "rgba(75,192,192,1)",
           borderWidth: 2,
           data: originLGA,
+          barPercentage: 0.5,
+          barThickness: 6,
         },
       ],
     });
