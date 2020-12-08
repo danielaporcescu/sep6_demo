@@ -3,18 +3,16 @@ import "./App.css";
 import FlightsPage from "./components/pages/flights-page";
 import WeatherPage from "./components/pages/weather-page";
 
-// import Navbar from "../src/components/Navbar/nav-bar";
-
-import Navbar from './components/Navbar2/Navbar';
+import Navbar from './components/navbar/Navbar';
 import './App.css';
-import Home from './components/Navbar2/pages/Home';
+import Home from './components/navbar/pages/Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Services from './components/Navbar2/pages/Services';
-import Products from './components/Navbar2/pages/Products';
-import ContactUs from './components/Navbar2/pages/ContactUs';
-import SignUp from './components/Navbar2/pages/SignUp';
-import Marketing from './components/Navbar2/pages/Marketing';
-import Consulting from './components/Navbar2/pages/Consulting';
+import Services from './components/navbar/pages/Services';
+import Products from './components/navbar/pages/Products';
+import ContactUs from './components/navbar/pages/ContactUs';
+import SignUp from './components/navbar/pages/SignUp';
+import Marketing from './components/navbar/pages/Marketing';
+import Consulting from './components/navbar/pages/Consulting';
 function App() {
   return (
     <>
