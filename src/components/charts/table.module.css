@@ -2,12 +2,7 @@
   box-sizing: border-box;
   width: 50%;
   height: 50%;
-}
-
-.ReactTable {
   position: relative;
-  margin: auto;
-  table-layout: auto;
   text-align: center;
-  column-width: auto;
+  padding-left: 10px;
 }

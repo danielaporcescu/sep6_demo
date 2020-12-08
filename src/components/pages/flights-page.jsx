@@ -8,6 +8,7 @@ import TotalFlightsPerMonthFromOrigins from "../charts/total-flights-month-from-
 import TotalFlightsPetMonthFromOriginStacked from "../charts/total-flights-month-from-origin-stacked";
 import TotalFlightsPetMonthFromOriginPercentage from "../charts/total-flights-month-from-origin-percent";
 import TopTenDestinationsPerOrigin from "../charts/top-10-destinations-per-origin";
+import Top10DestinationsTable from "../charts/top-10-destination-table";
 
 function FlightsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -32,6 +33,10 @@ function FlightsPage() {
 
   return (
     <div>
+      <Top10DestinationsTable
+      data={result.topTenDestinationsByFlights} 
+      isLoaded={isLoaded} 
+      />
       <TotalFlightsPerMonth 
       data={result.flightsPerMonth} 
       isLoaded={isLoaded} 
