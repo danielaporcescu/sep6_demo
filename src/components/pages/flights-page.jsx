@@ -8,7 +8,9 @@ import TotalFlightsPerMonthFromOrigins from "../charts/total-flights-month-from-
 import TotalFlightsPetMonthFromOriginStacked from "../charts/total-flights-month-from-origin-stacked";
 import TotalFlightsPetMonthFromOriginPercentage from "../charts/total-flights-month-from-origin-percent";
 import TopTenDestinationsPerOrigin from "../charts/top-10-destinations-per-origin";
-import Top10DestinationsTable from "../charts/top-10-destination-table";
+import Top10DestinationsTable from "../tables/top-10-destination-table";
+
+import MeanAirTime from "../tables/mean-airtime";
 
 function FlightsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -33,14 +35,12 @@ function FlightsPage() {
 
   return (
     <div>
+      {/* <MeanAirTime data={result.meanAirTime} isLoaded={isLoaded} /> */}
       <Top10DestinationsTable
-      data={result.topTenDestinationsByFlights} 
-      isLoaded={isLoaded} 
+        data={result.topTenDestinationsByFlights}
+        isLoaded={isLoaded}
       />
-      <TotalFlightsPerMonth 
-      data={result.flightsPerMonth} 
-      isLoaded={isLoaded} 
-      />
+      <TotalFlightsPerMonth data={result.flightsPerMonth} isLoaded={isLoaded} />
       <TotalFlightsPerMonthFromOrigins
         data={result.flightsPerMonthFromOrigins}
         isLoaded={isLoaded}
@@ -60,6 +60,5 @@ function FlightsPage() {
     </div>
   );
 }
-
 
 export default FlightsPage;

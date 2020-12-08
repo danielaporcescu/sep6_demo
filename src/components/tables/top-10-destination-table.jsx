@@ -1,4 +1,3 @@
-import { AutoSizer } from "@material-ui/data-grid";
 import React, { useEffect, useState, useMemo } from "react";
 import Table from "react-table";
 import "react-table/react-table.css";
@@ -24,14 +23,12 @@ function Top10DestinationsTable({ data, isLoaded }) {
 
   return (
     <div className={classes.Table}>
-      {/* <div className={classes.Table}> */}
       {!isLoaded ? (
         <p>Loading Please wait...</p>
       ) : (
         <Table
           showPagination={false}
           defaultPageSize={10}
-          // className={classes.ReactTable}
           data={tableData}
           columns={columns}
         />
