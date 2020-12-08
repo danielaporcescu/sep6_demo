@@ -16,7 +16,7 @@ import Consulting from './components/navbar/pages/Consulting';
 function App() {
   return (
     <>
-      {/* <p>test</p> */}
+      <p>test</p>
       {/* <Navbar/> */}
       {/* <FlightsPage /> */}
       {/* <WeatherPage/> */}
