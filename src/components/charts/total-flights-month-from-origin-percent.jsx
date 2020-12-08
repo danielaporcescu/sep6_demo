@@ -1,59 +1,50 @@
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
-import axios from "axios";
-import { FLIGHTS_CHART_DATA } from "../../helpers/url";
+
 import classes from "./BarChart.module.css";
 
-function TotalFlightsPetMonthFromOriginPercentage() {
+function TotalFlightsPetMonthFromOriginPercentage({ data, isLoaded }) {
   const [chartData, setChartData] = useState({});
 
-  const chart = () => {
-    let months = [];
-    let originEWR = [];
-    let originJFK = [];
-    let originLGA = [];
+  let months = [];
+  let originEWR = [];
+  let originJFK = [];
+  let originLGA = [];
 
-    axios
-      .get(FLIGHTS_CHART_DATA)
-      .then((res) => {
-        for (const dataObj of res.data.flightsPerMonthFromOriginPercentage) {
-          months.push(parseInt(dataObj.month));
-          originEWR.push(parseInt(dataObj.ewr));
-          originJFK.push(parseInt(dataObj.jfk));
-          originLGA.push(parseInt(dataObj.lga));
-        }
-        setChartData({
-          labels: months,
-          datasets: [
-            {
-              label: "ERW",
-              backgroundColor: "rgba(85,53,85,1)",
-              borderWidth: 2,
-              data: originEWR,
-            },
-            {
-              label: "JFK",
-              backgroundColor: "rgba(150,197,176,1)",
-              borderWidth: 2,
-              data: originJFK,
-            },
-            {
-              label: "LGA",
-              backgroundColor: "rgba(173,241,210,1)",
-              borderWidth: 2,
-              data: originLGA,
-            },
-          ],
-        });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  if (isLoaded) {
+    for (const dataObj of data) {
+      months.push(parseInt(dataObj.month));
+      originEWR.push(parseInt(dataObj.ewr));
+      originJFK.push(parseInt(dataObj.jfk));
+      originLGA.push(parseInt(dataObj.lga));
+    }
+  }
 
   useEffect(() => {
-    chart();
-  }, []);
+    setChartData({
+      labels: months,
+      datasets: [
+        {
+          label: "ERW",
+          backgroundColor: "rgba(85,53,85,1)",
+          borderWidth: 2,
+          data: originEWR,
+        },
+        {
+          label: "JFK",
+          backgroundColor: "rgba(150,197,176,1)",
+          borderWidth: 2,
+          data: originJFK,
+        },
+        {
+          label: "LGA",
+          backgroundColor: "rgba(173,241,210,1)",
+          borderWidth: 2,
+          data: originLGA,
+        },
+      ],
+    });
+  }, [isLoaded]);
   return (
     <div className={classes.BarChart}>
       <Bar
@@ -61,7 +52,8 @@ function TotalFlightsPetMonthFromOriginPercentage() {
         options={{
           responsive: true,
           title: {
-            text: "Total number of flights per month from the three origins in one plot. STACKED PERCENTAGE",
+            text:
+              "Total number of flights per month from the three origins in one plot. STACKED PERCENTAGE",
             display: true,
           },
           scales: {
