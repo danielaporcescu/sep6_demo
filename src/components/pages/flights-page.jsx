@@ -36,7 +36,9 @@ function FlightsPage() {
   return (
     <div>
       <MeanAirTime data={result.meanAirTime} isLoaded={isLoaded} />
-
+      <div>
+        break
+      </div>
       <Top10DestinationsTable
         data={result.topTenDestinationsByFlights}
         isLoaded={isLoaded}

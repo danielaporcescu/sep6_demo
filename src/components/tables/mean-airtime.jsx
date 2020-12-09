@@ -1,8 +1,4 @@
 import React, { useEffect, useState, useMemo } from "react";
-// import ReactTable from "react-table";
-import "react-table/react-table.css";
-import classes from "./table.css";
-
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -12,7 +8,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
-function Demo({ data, isLoaded }) {
+function MeanAirTime({ data, isLoaded }) {
   const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
@@ -39,7 +35,7 @@ function Demo({ data, isLoaded }) {
             <TableHead>
               <TableRow>
                 <TableCell>Origin</TableCell>
-                <TableCell>Flights count</TableCell>
+                <TableCell>Mean air time</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -58,7 +54,7 @@ function Demo({ data, isLoaded }) {
     </div>
   );
 }
-export default Demo;
+export default MeanAirTime;
 
 function createData(origin, meanAirTime) {
   return { origin, meanAirTime };
@@ -66,6 +62,6 @@ function createData(origin, meanAirTime) {
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 650,
+    minWidth: 650
   },
 });

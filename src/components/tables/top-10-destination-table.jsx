@@ -1,42 +1,66 @@
 import React, { useEffect, useState, useMemo } from "react";
-import ReactTable from "react-table";
-import Table from "react-table";
-import "react-table/react-table.css";
-import classes from "./table.css";
+import { makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
 
 function Top10DestinationsTable({ data, isLoaded }) {
-  const [tableData, setTableData] = useState({});
-
-  const columns = useMemo(() => [
-    {
-      Header: "Destination",
-      accessor: "dest",
-    },
-    {
-      Header: "Number of flights",
-      accessor: "flightsCount",
-    },
-  ]);
+  const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
-    setTableData(data);
+    let rows = [];
+    if (data !== undefined) {
+      for (let index of data) {
+        rows.push(createData(index.dest, index.flightsCount));
+      }
+      setTableData(rows);
+    }
   }, [isLoaded]);
+
+  const classes = useStyles();
 
   return (
     <div>
       {!isLoaded ? (
         <p>Loading Please wait...</p>
       ) : (
-        <ReactTable
-          className={classes.ReactTable}
-          showPagination={false}
-          defaultPageSize={10}
-          data={tableData}
-          columns={columns}
-        />
+        <TableContainer component={Paper}>
+          <Table className={classes.table} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Destination</TableCell>
+                <TableCell>Number of flights</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {tableData.map((row) => (
+                <TableRow key={row.destination}>
+                  <TableCell component="th" scope="row">
+                    {row.destination}
+                  </TableCell>
+                  <TableCell>{row.flightsCount}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       )}
     </div>
   );
 }
 
 export default Top10DestinationsTable;
+
+function createData(destination, flightsCount) {
+  return { destination, flightsCount };
+}
+
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
