@@ -51,20 +51,20 @@
 .sign-up,
 .marketing,
 .consulting {
-  display: flex;
+  /* display: flex; */
   height: 90vh;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* font-size: 3rem; */
 }
 
 .home {
-  background-image: url('./assets/images/img-1.jpg');
+  /* background-image: url('./assets/images/img-1.jpg'); */
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
+  /* background-repeat: no-repeat; */
+  /* color: #fff; */
+  /* font-size: 10px; */
 }
 
 .services {

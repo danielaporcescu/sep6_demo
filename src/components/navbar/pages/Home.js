@@ -5,8 +5,13 @@ import FlightsPage from "../../pages/flights-page"
 export default function Home() {
   return (
     <>
-    {/* <FlightsPage/> */}
-      <h1 className='home'>HOME</h1>
+      {/* <h1 className='home'>HOME</h1> */}
+      <div className='home'>
+    <FlightsPage />
+        
+
+      </div>
+
     </>
   );
 }

@@ -35,12 +35,13 @@ function FlightsPage() {
 
   return (
     <div>
-      {/* <MeanAirTime data={result.meanAirTime} isLoaded={isLoaded} /> */}
+      <MeanAirTime data={result.meanAirTime} isLoaded={isLoaded} />
+
       <Top10DestinationsTable
         data={result.topTenDestinationsByFlights}
         isLoaded={isLoaded}
       />
-      <TotalFlightsPerMonth data={result.flightsPerMonth} isLoaded={isLoaded} />
+      {/* <TotalFlightsPerMonth data={result.flightsPerMonth} isLoaded={isLoaded} />
       <TotalFlightsPerMonthFromOrigins
         data={result.flightsPerMonthFromOrigins}
         isLoaded={isLoaded}
@@ -56,7 +57,7 @@ function FlightsPage() {
       <TopTenDestinationsPerOrigin
         data={result.topTenDestinationsByFlightsFromOrigins}
         isLoaded={isLoaded}
-      />
+      /> */}
     </div>
   );
 }

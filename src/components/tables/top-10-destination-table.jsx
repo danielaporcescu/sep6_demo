@@ -1,7 +1,8 @@
 import React, { useEffect, useState, useMemo } from "react";
+import ReactTable from "react-table";
 import Table from "react-table";
 import "react-table/react-table.css";
-import classes from "./table.module.css";
+import classes from "./table.css";
 
 function Top10DestinationsTable({ data, isLoaded }) {
   const [tableData, setTableData] = useState({});
@@ -22,11 +23,12 @@ function Top10DestinationsTable({ data, isLoaded }) {
   }, [isLoaded]);
 
   return (
-    <div className={classes.Table}>
+    <div>
       {!isLoaded ? (
         <p>Loading Please wait...</p>
       ) : (
-        <Table
+        <ReactTable
+          className={classes.ReactTable}
           showPagination={false}
           defaultPageSize={10}
           data={tableData}

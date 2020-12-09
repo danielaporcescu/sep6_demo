@@ -1,44 +1,71 @@
 import React, { useEffect, useState, useMemo } from "react";
-import Table from "react-table";
+// import ReactTable from "react-table";
 import "react-table/react-table.css";
-import classes from "./table.module.css";
+import classes from "./table.css";
 
-function MeanAirTime({ data, isLoaded }) {
-  const [tableData, setTableData] = useState({});
+import { makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
 
-  const columns = useMemo(() => [
-    {
-      Header: "EWR",
-      accessor: "ewr",
-    },
-    {
-      Header: "JFK",
-      accessor: "jfk",
-    },
-    {
-      Header: "LGA",
-      accessor: "lga",
-    }
-  ]);
+function Demo({ data, isLoaded }) {
+  const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
-    setTableData(data);
+    let rows = [];
+    if (data !== undefined) {
+      rows = [
+        createData("EWR", data.ewr),
+        createData("JFK", data.jfk),
+        createData("LGA", data.lga),
+      ];
+      setTableData(rows);
+    }
   }, [isLoaded]);
 
+  const classes = useStyles();
+
   return (
-    <div className={classes.Table}>
+    <div>
       {!isLoaded ? (
         <p>Loading Please wait...</p>
       ) : (
-        <Table
-          showPagination={false}
-          defaultPageSize={10}
-          data={tableData}
-          columns={columns}
-        />
+        <TableContainer component={Paper}>
+          <Table className={classes.table} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell>Origin</TableCell>
+                <TableCell>Flights count</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {tableData.map((row) => (
+                <TableRow key={row.origin}>
+                  <TableCell component="th" scope="row">
+                    {row.origin}
+                  </TableCell>
+                  <TableCell>{row.meanAirTime}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       )}
     </div>
   );
 }
+export default Demo;
 
-export default MeanAirTime;
+function createData(origin, meanAirTime) {
+  return { origin, meanAirTime };
+}
+
+const useStyles = makeStyles({
+  table: {
+    minWidth: 650,
+  },
+});
