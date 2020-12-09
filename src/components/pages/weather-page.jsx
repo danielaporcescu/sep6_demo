@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Box from "@material-ui/core/Box";
 
-import { VALUES_MAIN_ORIGINS } from "../../helpers/url";
+import { WEATHER_OBSERVATION_COUNT_ORIGINS } from "../../helpers/url";
 
-import TempAtributesOrigins from "../charts/temperature-atributes-origins"
+import WeatherObsOrigins from "../tables/weather-observations-origins";
+import TempAtributesOrigins from "../charts/temperature-atributes-origins";
+
+import { makeStyles } from "@material-ui/core/styles";
+import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
 
 // import TotalFlightsPerMonth from "../charts/total-flights-month";
 // import TotalFlightsPerMonthFromOrigins from "../charts/total-flights-month-from-origin";
@@ -16,13 +22,16 @@ function WeatherPage() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [result, setResult] = useState({});
 
+  const classes = useStyles();
+
   const getFlights = () => {
     axios
-      .get(VALUES_MAIN_ORIGINS)
+      .get(WEATHER_OBSERVATION_COUNT_ORIGINS)
       .then((res) => {
         setResult(res.data);
+        console.log(res.data);
         setIsLoaded(true);
-        console.log(res.data)
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -35,38 +44,26 @@ function WeatherPage() {
   }, [isLoaded]);
 
   return (
-    <div>
-        <TempAtributesOrigins
-        data={result} 
-        isLoaded={isLoaded} 
-        />
-      {/* <Top10DestinationsTable
-      data={result.topTenDestinationsByFlights} 
-      isLoaded={isLoaded} 
-      />
-      <TotalFlightsPerMonth 
-      data={result.flightsPerMonth} 
-      isLoaded={isLoaded} 
-      />
-      <TotalFlightsPerMonthFromOrigins
-        data={result.flightsPerMonthFromOrigins}
-        isLoaded={isLoaded}
-      />
-      <TotalFlightsPetMonthFromOriginStacked
-        data={result.flightsPerMonthFromOrigins}
-        isLoaded={isLoaded}
-      />
-      <TotalFlightsPetMonthFromOriginPercentage
-        data={result.flightsPerMonthFromOriginPercentage}
-        isLoaded={isLoaded}
-      />
-      <TopTenDestinationsPerOrigin
-        data={result.topTenDestinationsByFlightsFromOrigins}
-        isLoaded={isLoaded}
-      /> */}
+    <div className={classes.root}>
+      {/* <Box width={300}>  */}
+      <Grid item xs={6}>
+        How many weather observations there are for the origins in a table
+        <WeatherObsOrigins data={result} isLoaded={isLoaded} />
+      </Grid>
+      {/* </Box> */}
     </div>
   );
 }
 
-
 export default WeatherPage;
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    padding: theme.spacing(2),
+    textAlign: "center",
+    color: theme.palette.text.secondary,
+  },
+}));
