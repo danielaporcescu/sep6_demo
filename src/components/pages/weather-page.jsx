@@ -14,7 +14,6 @@ import Grid from "@material-ui/core/Grid";
 import Example from "../charts/jfk-daily-mean-temp";
 import { JFK_DAILY_MEAN_TEMP } from "../../helpers/url";
 
-
 // import TotalFlightsPerMonth from "../charts/total-flights-month";
 // import TotalFlightsPerMonthFromOrigins from "../charts/total-flights-month-from-origin";
 // import TotalFlightsPetMonthFromOriginStacked from "../charts/total-flights-month-from-origin-stacked";
@@ -50,9 +49,10 @@ function WeatherPage() {
     <div className={classes.root}>
       {/* <Box width={300}>  */}
       <Grid item xs={6}>
-        How many weather observations there are for the origins in a table
+        {/* How many weather observations there are for the origins in a table */}
         {/* <WeatherObsOrigins data={result} isLoaded={isLoaded} /> */}
-        <Example data={result} isLoaded={isLoaded}  />
+        The daily mean temperature (in Celsius) at JFK
+        <Example data={result} isLoaded={isLoaded} />
       </Grid>
       {/* </Box> */}
     </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef} from "react";
 import { Chart } from "react-chartjs-2";
 
 function Example({ data, isLoaded }) {
@@ -19,7 +19,7 @@ function Example({ data, isLoaded }) {
       data: {
         datasets: [
           {
-            label: "Scatter Dataset",
+            label: "JFK",
             data: datainChart,
             backgroundColor: "rgb(255, 99, 132)",
           },
@@ -29,12 +29,16 @@ function Example({ data, isLoaded }) {
         scales: {
           xAxes: [
             {
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Date'
+                  },
               type: "time",
               ticks: {
                 min: 1356994800000, // miliseconds equivalent to 1 Jan 2013
                 max: 1388444400000, // miliseconds equivalent to 31 Dec 2013
                 displayFormats: {
-                  quarter: "MMM YYYY",
+                  quarter: "MMM D",
                 },
               },
               position: "bottom",
@@ -42,6 +46,10 @@ function Example({ data, isLoaded }) {
           ],
           yAxes: [
             {
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Daily mean temperature'
+                  },
               ticks: {
                 beginAtZero: true,
               },
@@ -52,7 +60,7 @@ function Example({ data, isLoaded }) {
     };
     const chart = new Chart(canvas.current.getContext("2d"), cfg);
     return () => chart.destroy();
-  });
+  }, [isLoaded]);
 
   return (
     <div className="chartjs-wrapper">
