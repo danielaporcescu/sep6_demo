@@ -11,6 +11,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
+import Example from "../charts/jfk-daily-mean-temp";
+import { JFK_DAILY_MEAN_TEMP } from "../../helpers/url";
+
+
 // import TotalFlightsPerMonth from "../charts/total-flights-month";
 // import TotalFlightsPerMonthFromOrigins from "../charts/total-flights-month-from-origin";
 // import TotalFlightsPetMonthFromOriginStacked from "../charts/total-flights-month-from-origin-stacked";
@@ -26,12 +30,11 @@ function WeatherPage() {
 
   const getFlights = () => {
     axios
-      .get(WEATHER_OBSERVATION_COUNT_ORIGINS)
+      .get(JFK_DAILY_MEAN_TEMP)
       .then((res) => {
         setResult(res.data);
         console.log(res.data);
         setIsLoaded(true);
-        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -48,7 +51,8 @@ function WeatherPage() {
       {/* <Box width={300}>  */}
       <Grid item xs={6}>
         How many weather observations there are for the origins in a table
-        <WeatherObsOrigins data={result} isLoaded={isLoaded} />
+        {/* <WeatherObsOrigins data={result} isLoaded={isLoaded} /> */}
+        <Example data={result} isLoaded={isLoaded}  />
       </Grid>
       {/* </Box> */}
     </div>
