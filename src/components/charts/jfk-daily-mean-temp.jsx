@@ -1,7 +1,7 @@
 import React, { useEffect, useRef} from "react";
 import { Chart } from "react-chartjs-2";
 
-function Example({ data, isLoaded }) {
+function JFKDailyMeanTemperature({ data, isLoaded }) {
   //   const [chartData, setChartData] = useState({});
 
   let datainChart = [];
@@ -22,6 +22,7 @@ function Example({ data, isLoaded }) {
             label: "JFK",
             data: datainChart,
             backgroundColor: "rgb(255, 99, 132)",
+            backgroundColor: "#FFFFFF",
           },
         ],
       },
@@ -69,4 +70,4 @@ function Example({ data, isLoaded }) {
   );
 }
 
-export default Example;
+export default JFKDailyMeanTemperature;
