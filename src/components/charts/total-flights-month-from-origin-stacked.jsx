@@ -26,21 +26,24 @@ function TotalFlightsPetMonthFromOriginStacked({ data, isLoaded }) {
       datasets: [
         {
           label: "ERW",
-          backgroundColor: "#ADFCF9",
-          borderWidth: 2,
           data: originEWR,
+          borderWidth: 2,
+          borderColor: "#ADFCF9",
+          backgroundColor: "#ADFCF980",
         },
         {
           label: "JFK",
-          backgroundColor: "#89A894",
-          borderWidth: 2,
           data: originJFK,
+          borderWidth: 2,
+          borderColor: "#89A894",
+          backgroundColor: "#89A89480",
         },
         {
           label: "LGA",
-          backgroundColor: "#341C1C",
-          borderWidth: 2,
           data: originLGA,
+          borderWidth: 2,
+          borderColor: "#341C1C",
+          backgroundColor: "#341C1C80",
         },
       ],
     });
@@ -62,7 +65,7 @@ function TotalFlightsPetMonthFromOriginStacked({ data, isLoaded }) {
               {
                 scaleLabel: {
                   display: true,
-                  labelString: 'Number of flights'
+                  labelString: "Number of flights",
                 },
                 ticks: {
                   autoSkip: true,
@@ -79,7 +82,7 @@ function TotalFlightsPetMonthFromOriginStacked({ data, isLoaded }) {
               {
                 scaleLabel: {
                   display: true,
-                  labelString: 'Month'
+                  labelString: "Month",
                 },
                 stacked: true,
                 gridLines: {

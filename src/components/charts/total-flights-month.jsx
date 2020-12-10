@@ -22,7 +22,8 @@ function TotalFlightsPerMonth({ data, isLoaded }) {
       datasets: [
         {
           label: "month",
-          backgroundColor: "rgba(75,192,192,1)",
+          backgroundColor: "#4bc0c04d",
+          borderColor: "#4bc0c0",
           borderWidth: 2,
           data: flights,
         },

@@ -26,21 +26,24 @@ function TopTenDestinationsPerOrigin({ data, isLoaded }) {
       datasets: [
         {
           label: "ERW",
-          backgroundColor: "rgba(0,59,54,1)",
-          borderWidth: 2,
           data: originEWR,
+          borderWidth: 2,
+          borderColor: "#EE8434",
+          backgroundColor: "#EE84344D",
         },
         {
           label: "JFK",
-          backgroundColor: "rgba(233,138,21,1)",
-          borderWidth: 2,
           data: originJFK,
+          borderWidth: 2,
+          borderColor: "#C95D63",
+          backgroundColor: "#C95D634D",
         },
         {
           label: "LGA",
-          backgroundColor: "rgba(89,17,77,1)",
-          borderWidth: 2,
           data: originLGA,
+          borderWidth: 2,
+          borderColor: "#496DDB",
+          backgroundColor: "#496DDB4D",
         },
       ],
     });

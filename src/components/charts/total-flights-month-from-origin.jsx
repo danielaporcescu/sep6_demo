@@ -25,28 +25,31 @@ function TotalFlightsPerMonthFromOrigins({ data, isLoaded }) {
       datasets: [
         {
           label: "ERW",
-          backgroundColor: "rgba(239,131,84,1)",
+          backgroundColor: "#083D7740",
           borderWidth: 2,
           data: originEWR,
-          barPercentage: 0.5,
-          barThickness: 6,
-
+          borderColor: "#083D77",
+          // barPercentage: 0.5,
+          // barThickness: 6,
         },
         {
           label: "JFK",
-          backgroundColor: "rgba(176,45,12,1)",
+          backgroundColor: "#b02d0c4d",
           borderWidth: 2,
           data: originJFK,
-          barPercentage: 0.5,
-          barThickness: 6,
+          borderColor: "#b02d0c",
+
+          // barPercentage: 0.5,
+          // barThickness: 6,
         },
         {
           label: "LGA",
-          backgroundColor: "rgba(75,192,192,1)",
+          backgroundColor: "#4bc0c04d",
           borderWidth: 2,
           data: originLGA,
-          barPercentage: 0.5,
-          barThickness: 6,
+          borderColor: "#4bc0c0",
+          // barPercentage: 0.5,
+          // barThickness: 6,
         },
       ],
     });
@@ -68,7 +71,7 @@ function TotalFlightsPerMonthFromOrigins({ data, isLoaded }) {
               {
                 scaleLabel: {
                   display: true,
-                  labelString: 'Number of flights'
+                  labelString: "Number of flights",
                 },
                 ticks: {
                   autoSkip: true,
@@ -84,7 +87,7 @@ function TotalFlightsPerMonthFromOrigins({ data, isLoaded }) {
               {
                 scaleLabel: {
                   display: true,
-                  labelString: 'Month'
+                  labelString: "Month",
                 },
                 gridLines: {
                   display: false,

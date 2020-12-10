@@ -8,8 +8,8 @@ export default function Home() {
     <>
       {/* <h1 className='home'>HOME</h1> */}
       <div className="home">
-        <WeatherPage />
-        {/* <FlightsPage /> */}
+        {/* <WeatherPage /> */}
+        <FlightsPage />
       </div>
     </>
   );

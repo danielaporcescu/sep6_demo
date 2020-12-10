@@ -14,9 +14,9 @@ function TotalFlightsPetMonthFromOriginPercentage({ data, isLoaded }) {
   if (isLoaded) {
     for (const dataObj of data) {
       months.push(parseInt(dataObj.month));
-      originEWR.push(parseInt(dataObj.ewr));
-      originJFK.push(parseInt(dataObj.jfk));
-      originLGA.push(parseInt(dataObj.lga));
+      originEWR.push((dataObj.ewr));
+      originJFK.push((dataObj.jfk));
+      originLGA.push((dataObj.lga));
     }
   }
 
@@ -26,21 +26,24 @@ function TotalFlightsPetMonthFromOriginPercentage({ data, isLoaded }) {
       datasets: [
         {
           label: "ERW",
-          backgroundColor: "rgba(85,53,85,1)",
-          borderWidth: 2,
           data: originEWR,
+          borderWidth: 2,
+          borderColor: "#D16666",
+          backgroundColor: "#D166664D",
         },
         {
           label: "JFK",
-          backgroundColor: "rgba(150,197,176,1)",
-          borderWidth: 2,
           data: originJFK,
+          borderWidth: 2,
+          borderColor: "#B6C649",
+          backgroundColor: "#B6C6494D",
         },
         {
           label: "LGA",
-          backgroundColor: "rgba(173,241,210,1)",
           borderWidth: 2,
           data: originLGA,
+          borderColor: "#BC8034",
+          backgroundColor: "#BC80344D",
         },
       ],
     });
@@ -61,7 +64,7 @@ function TotalFlightsPetMonthFromOriginPercentage({ data, isLoaded }) {
               {
                 scaleLabel: {
                   display: true,
-                  labelString: 'Percentage (%)'
+                  labelString: "Percentage (%)",
                 },
                 ticks: {
                   autoSkip: true,
@@ -78,7 +81,7 @@ function TotalFlightsPetMonthFromOriginPercentage({ data, isLoaded }) {
               {
                 scaleLabel: {
                   display: true,
-                  labelString: 'Month'
+                  labelString: "Month",
                 },
                 stacked: true,
                 gridLines: {

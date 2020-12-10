@@ -5,7 +5,6 @@ import Box from "@material-ui/core/Box";
 import { WEATHER_OBSERVATION_COUNT_ORIGINS } from "../../helpers/url";
 
 import WeatherObsOrigins from "../tables/weather-observations-origins";
-import TempAtributesOrigins from "../charts/temperature-atributes-origins";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -31,19 +30,19 @@ function WeatherPage() {
   const classes = useStyles();
 
   //FOR JFKDailyMeanTemperature
-  // const getFlights = () => {
-  //   axios
-  //     .get(JFK_DAILY_MEAN_TEMP)
-  //     .then((res) => {
-  //       setResult(res.data);
-  //       console.log(res.data);
-  //       setIsLoaded(true);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //       setIsLoaded(true);
-  //     });
-  // };
+  const getFlights = () => {
+    axios
+      .get(JFK_DAILY_MEAN_TEMP)
+      .then((res) => {
+        setResult(res.data);
+        console.log(res.data);
+        setIsLoaded(true);
+      })
+      .catch((err) => {
+        console.log(err);
+        setIsLoaded(true);
+      });
+  };
 
   //FOR WeatherObsOrigins
   // const getFlights = () => {
@@ -61,19 +60,19 @@ function WeatherPage() {
   // };
 
   //FOR WeatherObsOrigins
-  const getFlights = () => {
-    axios
-      .get(TEMP_VALUES_ORIGINS)
-      .then((res) => {
-        setResult(res.data);
-        console.log(res.data);
-        setIsLoaded(true);
-      })
-      .catch((err) => {
-        console.log(err);
-        setIsLoaded(true);
-      });
-  };
+  // const getFlights = () => {
+  //   axios
+  //     .get(TEMP_VALUES_ORIGINS)
+  //     .then((res) => {
+  //       setResult(res.data);
+  //       console.log(res.data);
+  //       setIsLoaded(true);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //       setIsLoaded(true);
+  //     });
+  // };
 
   useEffect(() => {
     getFlights();
@@ -85,11 +84,11 @@ function WeatherPage() {
       <Grid item xs={6}>
         {/* How many weather observations there are for the origins in a table */}
         {/* <WeatherObsOrigins data={result} isLoaded={isLoaded} /> */}
-        {/* The daily mean temperature (in Celsius) at JFK */}
-        {/* <JFKDailyMeanTemperature data={result} isLoaded={isLoaded} /> */}
+        The daily mean temperature (in Celsius) at JFK
+        <JFKDailyMeanTemperature data={result} isLoaded={isLoaded} />
       </Grid>
-      For each of the three origins, all temperature attributes
-      <OriginsTemperatureAllValues data={result} isLoaded={isLoaded} />
+      {/* For each of the three origins, all temperature attributes */}
+      {/* <OriginsTemperatureAllValues data={result} isLoaded={isLoaded} /> */}
       {/* </Box> */}
     </div>
   );

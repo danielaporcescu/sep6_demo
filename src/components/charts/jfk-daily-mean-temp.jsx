@@ -21,8 +21,8 @@ function JFKDailyMeanTemperature({ data, isLoaded }) {
           {
             label: "JFK",
             data: datainChart,
-            backgroundColor: "rgb(255, 99, 132)",
-            backgroundColor: "#FFFFFF",
+            borderWidth: 2,
+            borderColor: "#EE8434",
           },
         ],
       },
