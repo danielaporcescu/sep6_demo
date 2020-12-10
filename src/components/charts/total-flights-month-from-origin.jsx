@@ -66,6 +66,10 @@ function TotalFlightsPerMonthFromOrigins({ data, isLoaded }) {
           scales: {
             yAxes: [
               {
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Number of flights'
+                },
                 ticks: {
                   autoSkip: true,
                   maxTicksLimit: 10,
@@ -78,6 +82,10 @@ function TotalFlightsPerMonthFromOrigins({ data, isLoaded }) {
             ],
             xAxes: [
               {
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Month'
+                },
                 gridLines: {
                   display: false,
                 },

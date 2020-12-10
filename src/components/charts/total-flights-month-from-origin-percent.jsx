@@ -59,6 +59,10 @@ function TotalFlightsPetMonthFromOriginPercentage({ data, isLoaded }) {
           scales: {
             yAxes: [
               {
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Percentage (%)'
+                },
                 ticks: {
                   autoSkip: true,
                   maxTicksLimit: 10,
@@ -72,6 +76,10 @@ function TotalFlightsPetMonthFromOriginPercentage({ data, isLoaded }) {
             ],
             xAxes: [
               {
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Month'
+                },
                 stacked: true,
                 gridLines: {
                   display: false,

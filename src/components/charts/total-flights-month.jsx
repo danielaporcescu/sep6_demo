@@ -40,6 +40,10 @@ function TotalFlightsPerMonth({ data, isLoaded }) {
           scales: {
             yAxes: [
               {
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Number of flights'
+                },
                 ticks: {
                   autoSkip: true,
                   maxTicksLimit: 10,
@@ -52,6 +56,10 @@ function TotalFlightsPerMonth({ data, isLoaded }) {
             ],
             xAxes: [
               {
+                scaleLabel: {
+                  display: true,
+                  labelString: 'Month'
+                },
                 gridLines: {
                   display: false,
                 },
