@@ -11,52 +11,24 @@ import Grid from "@material-ui/core/Grid";
 import JFKDailyMeanTemperature from "../charts/jfk-daily-mean-temp";
 import OriginsTemperatureAllValues from "../charts/temp_vals_origins";
 import JFKDailyTemperature from "../charts/jfk-daily-temp";
-import OriginDailyMeanTemperature from "../charts/origins-daily-mean-temp"
+import OriginDailyMeanTemperature from "../charts/origins-daily-mean-temp";
 
-import { WEATHER_OBSERVATION_COUNT_ORIGINS } from "../../helpers/url";
-import { JFK_DAILY_MEAN_TEMP } from "../../helpers/url";
-import { TEMP_VALUES_ORIGINS } from "../../helpers/url";
-import {ORIGINS_DAILY_MEAN_TEMP} from "../../helpers/url"
+import { WEATHER_DATA } from "../../helpers/url";
 
 import Loader from "../elements/loader";
 
-// import TotalFlightsPerMonth from "../charts/total-flights-month";
-// import TotalFlightsPerMonthFromOrigins from "../charts/total-flights-month-from-origin";
-// import TotalFlightsPetMonthFromOriginStacked from "../charts/total-flights-month-from-origin-stacked";
-// import TotalFlightsPetMonthFromOriginPercentage from "../charts/total-flights-month-from-origin-percent";
-// import TopTenDestinationsPerOrigin from "../charts/top-10-destinations-per-origin";
-// import Top10DestinationsTable from "../tables/top-10-destination-table";
 
 function WeatherPage() {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [jfkMeanTemp, setJfkMeanTemp] = useState({});
-  const [originsMeanTemp, setOriginsMeanTemp] = useState({});
-  const [weatherCount, setWeatherCount] = useState({});
-  const [allobsOrigins, setAllObsOrigins] = useState({});
+  const [result, setResult] = useState({});
 
   const classes = useStyles();
 
-  //FOR JFKDailyMeanTemperature
-  const getJfkMeanTemp = () => {
+  const getWeatherData = () => {
     axios
-      .get(JFK_DAILY_MEAN_TEMP)
+      .get(WEATHER_DATA)
       .then((res) => {
-        setJfkMeanTemp(res.data);
-        // console.log(res.data);
-        setIsLoaded(true);
-      })
-      .catch((err) => {
-        console.log(err);
-        setIsLoaded(true);
-      });
-  };
-
-  //FOR WeatherObsCount
-  const getWeatherCount = () => {
-    axios
-      .get(WEATHER_OBSERVATION_COUNT_ORIGINS)
-      .then((res) => {
-        setWeatherCount(res.data);
+        setResult(res.data);
         console.log(res.data);
         setIsLoaded(true);
       })
@@ -65,100 +37,70 @@ function WeatherPage() {
         setIsLoaded(true);
       });
   };
-
-  //FOR WeatherObsOrigins
-  const getObsOrigins = () => {
-    axios
-      .get(TEMP_VALUES_ORIGINS)
-      .then((res) => {
-        setAllObsOrigins(res.data);
-        console.log(res.data);
-        setIsLoaded(true);
-      })
-      .catch((err) => {
-        console.log(err);
-        setIsLoaded(true);
-      });
-  };
-
-  //FOR Origin daily mean temp
-  const getOriginsMeanTemp = () => {
-    axios
-      .get(ORIGINS_DAILY_MEAN_TEMP)
-      .then((res) => {
-        setOriginsMeanTemp(res.data);
-        console.log(res.data);
-        setIsLoaded(true);
-      })
-      .catch((err) => {
-        console.log(err);
-        setIsLoaded(true);
-      });
-  };
-
 
   useEffect(() => {
-    // getWeatherCount();
-    // getJfkMeanTemp();
-    // getObsOrigins();
-    getOriginsMeanTemp();
+    getWeatherData();
   }, [isLoaded]);
 
   return (
     <div className={classes.root}>
-      {/* <Box width={300}>  */}
-      {/* <Grid item xs={6}> */}
-      {/* How many weather observations there are for the origins in a table */}
-      {/* <div>
+      <Grid item xs={6}>
+        How many weather observations there are for the origins in a table
+        <div>
+          {!isLoaded ? (
+            <Loader />
+          ) : (
+            <WeatherObsOrigins
+              data={result.weatherObservationsOrigin}
+              isLoaded={isLoaded}
+            />
+          )}
+        </div>
+        The daily mean temperature (in Celsius) at JFK
+        <div>
+          {!isLoaded ? (
+            <Loader />
+          ) : (
+            <JFKDailyMeanTemperature
+              data={result.dailyMeanTemperatureJFK}
+              isLoaded={isLoaded}
+            />
+          )}
+        </div>
+      </Grid>
+      For each of the three origins, all temperature attributes
+      <div>
         {!isLoaded ? (
-          <p>Loading Please wait...</p>
-        ) : (
-          <WeatherObsOrigins data={weatherCount} isLoaded={isLoaded} />
-        )}
-      </div> */}
-      {/* The daily mean temperature (in Celsius) at JFK */}
-      {/* <div>
-        {!isLoaded ? (
-          <p>Loading Please wait...</p>
-        ) : (
-          <JFKDailyMeanTemperature data={jfkMeanTemp} isLoaded={isLoaded} />
-        )}
-      </div> */}
-      {/* </Grid> */}
-      {/* For each of the three origins, all temperature attributes */}
-      {/* <div>
-        {!isLoaded ? (
-          < />
+          <Loader />
         ) : (
           <OriginsTemperatureAllValues
-            data={allobsOrigins}
-            isLoaded={isLoaded}
-          />
-        )}
-      </div> */}
-      {/* The temperature (in Celsius) at JFK.
-      <div>
-        {!isLoaded ? (
-          < />
-        ) : (
-          <JFKDailyTemperature
-            data={allobsOrigins.jfkValues}
-            isLoaded={isLoaded}
-          />
-        )}
-      </div> */}
-      The daily mean temperature (in Celsius) for each origin in the same plot
-      <div>
-        {!isLoaded ? (
-          < Loader/>
-        ) : (
-          <OriginDailyMeanTemperature
-            data={originsMeanTemp}
+            data={result.valuesForOrigins}
             isLoaded={isLoaded}
           />
         )}
       </div>
-      {/* </Box> */}
+      The temperature (in Celsius) at JFK.
+      <div>
+        {!isLoaded ? (
+          <Loader />
+        ) : (
+          <JFKDailyTemperature
+            data={result.valuesForOrigins.jfkValues}
+            isLoaded={isLoaded}
+          />
+        )}
+      </div>
+      The daily mean temperature (in Celsius) for each origin in the same plot
+      <div>
+        {!isLoaded ? (
+          <Loader />
+        ) : (
+          <OriginDailyMeanTemperature
+            data={result.dailyMeanTemperatureOrigins}
+            isLoaded={isLoaded}
+          />
+        )}
+      </div>
     </div>
   );
 }

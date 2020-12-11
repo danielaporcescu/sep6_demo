@@ -9,10 +9,11 @@ import TotalFlightsPetMonthFromOriginStacked from "../charts/total-flights-month
 import TotalFlightsPetMonthFromOriginPercentage from "../charts/total-flights-month-from-origin-percent";
 import TopTenDestinationsPerOrigin from "../charts/top-10-destinations-per-origin";
 import Top10DestinationsTable from "../tables/top-10-destination-table";
+import MeanAirTime from "../tables/mean-airtime";
+import MeanDepArrDelay from "../tables/mean-dep-arrival-delay";
+
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-
-import MeanAirTime from "../tables/mean-airtime";
 
 import Loader from "../elements/loader";
 
@@ -55,6 +56,10 @@ function FlightsPage() {
               data={result.topTenDestinationsByFlights}
               isLoaded={isLoaded}
             />
+          </Paper>
+          <Paper className={classes.paper}>
+            Mean departure and arrival delay for each origin in a table
+            <MeanDepArrDelay data={result.originDelays} isLoaded={isLoaded} />
           </Paper>
         </Grid>
         <Grid item xs={6}>

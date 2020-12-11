@@ -4,6 +4,7 @@
 // export const FLIGHTS_PER_TOP10_DESTINATIONS_PER_ORIGINS_URL = "https://uaa.azurewebsites.net/api/top-10-dest-nr-of-flights-per-main-origins"
 // export const FLIGHTS_TOP10_DESTINATIONS = "https://uaa.azurewebsites.net/api/top-10-dest-nr-of-flights";
 export const FLIGHTS_CHART_DATA = "https://uaa.azurewebsites.net/api/chart-data"; 
+export const WEATHER_DATA = "https://uaa.azurewebsites.net//api/weather/chart-data"
 export const TEMP_VALUES_ORIGINS = "https://uaa.azurewebsites.net/api/weather/values-for-main-origins";
 export const WEATHER_OBSERVATION_COUNT_ORIGINS = "https://uaa.azurewebsites.net/api/weather/count-for-main-origins";
 export const JFK_DAILY_MEAN_TEMP = "https://uaa.azurewebsites.net/api/weather/jfk-mean-temp-daily"; 
