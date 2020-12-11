@@ -62,6 +62,7 @@ function OriginDailyMeanTemperature({ data, isLoaded }) {
         scales: {
           xAxes: [
             {
+                gridLines: { zeroLineWidth: 50 },
               scaleLabel: {
                 display: true,
                 labelString: "Date",
