@@ -1,21 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Box from "@material-ui/core/Box";
-
-import WeatherObsOrigins from "../tables/weather-observations-origins";
-
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
 
 import JFKDailyMeanTemperature from "../charts/jfk-daily-mean-temp";
 import OriginsTemperatureAllValues from "../charts/temp_vals_origins";
 import JFKDailyTemperature from "../charts/jfk-daily-temp";
 import OriginDailyMeanTemperature from "../charts/origins-daily-mean-temp";
+import WeatherObsOrigins from "../tables/weather-observations-origins";
 
 import { WEATHER_DATA } from "../../helpers/url";
-
 import Loader from "../elements/loader";
+
 
 
 function WeatherPage() {

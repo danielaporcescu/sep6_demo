@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 
-import classes from "./BarChart.module.css";
-
 import Loader from "../elements/loader";
 
 function TotalFlightsPerMonth({ data, isLoaded }) {
@@ -34,7 +32,7 @@ function TotalFlightsPerMonth({ data, isLoaded }) {
   }, [isLoaded]);
 
   return (
-    <div className={classes.BarChart}>
+    <div>
       {!isLoaded ? (
         <Loader />
       ) : (

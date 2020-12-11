@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from "react";
 import { Chart } from "react-chartjs-2";
 
 function OriginDailyMeanTemperature({ data, isLoaded }) {
-  //   const [chartData, setChartData] = useState({});
 
   let chartDataJfk = [];
   let chartDataEwr = [];

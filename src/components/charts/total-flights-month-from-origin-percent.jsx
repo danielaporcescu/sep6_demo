@@ -3,8 +3,6 @@ import { Bar } from "react-chartjs-2";
 
 import Loader from "../elements/loader";
 
-import classes from "./BarChart.module.css";
-
 function TotalFlightsPetMonthFromOriginPercentage({ data, isLoaded }) {
   const [chartData, setChartData] = useState({});
 
@@ -51,7 +49,7 @@ function TotalFlightsPetMonthFromOriginPercentage({ data, isLoaded }) {
     });
   }, [isLoaded]);
   return (
-    <div className={classes.BarChart}>
+    <div>
       {!isLoaded ? (
         <Loader />
       ) : (

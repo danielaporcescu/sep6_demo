@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "./Button";
-import { BrowserRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Dropdown from "./Dropdown";
 
@@ -29,7 +29,6 @@ function Navbar() {
 
   return (
     <>
-    {/* <BrowserRouter> */}
       <nav className="navbar">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
           UAA
@@ -88,7 +87,6 @@ function Navbar() {
         </ul>
         <Button />
       </nav>
-      {/* </BrowserRouter> */}
     </>
   );
 }

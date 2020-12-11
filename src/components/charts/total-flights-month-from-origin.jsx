@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 
-import classes from "./BarChart.module.css";
-
 import Loader from "../elements/loader";
 
 function TotalFlightsPerMonthFromOrigins({ data, isLoaded }) {
@@ -31,8 +29,6 @@ function TotalFlightsPerMonthFromOrigins({ data, isLoaded }) {
           borderWidth: 2,
           data: originEWR,
           borderColor: "#083D77",
-          // barPercentage: 0.5,
-          // barThickness: 6,
         },
         {
           label: "JFK",
@@ -40,9 +36,6 @@ function TotalFlightsPerMonthFromOrigins({ data, isLoaded }) {
           borderWidth: 2,
           data: originJFK,
           borderColor: "#b02d0c",
-
-          // barPercentage: 0.5,
-          // barThickness: 6,
         },
         {
           label: "LGA",
@@ -50,15 +43,13 @@ function TotalFlightsPerMonthFromOrigins({ data, isLoaded }) {
           borderWidth: 2,
           data: originLGA,
           borderColor: "#4bc0c0",
-          // barPercentage: 0.5,
-          // barThickness: 6,
         },
       ],
     });
   }, [isLoaded]);
 
   return (
-    <div className={classes.BarChart}>
+    <div>
       {!isLoaded ? (
         <Loader />
       ) : (

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import { FLIGHTS_CHART_DATA } from "../../helpers/url";
+import { makeStyles } from "@material-ui/core/styles";
+import Grid from "@material-ui/core/Grid";
+import Paper from "@material-ui/core/Paper";
 
 import TotalFlightsPerMonth from "../charts/total-flights-month";
 import TotalFlightsPerMonthFromOrigins from "../charts/total-flights-month-from-origin";
@@ -12,12 +14,7 @@ import Top10DestinationsTable from "../tables/top-10-destination-table";
 import MeanAirTime from "../tables/mean-airtime";
 import MeanDepArrDelay from "../tables/mean-dep-arrival-delay";
 
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-
-import Loader from "../elements/loader";
-
-import { makeStyles } from "@material-ui/core/styles";
+import { FLIGHTS_CHART_DATA } from "../../helpers/url";
 
 function FlightsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
