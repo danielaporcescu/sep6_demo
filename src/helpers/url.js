@@ -7,3 +7,4 @@ export const FLIGHTS_CHART_DATA = "https://uaa.azurewebsites.net/api/chart-data"
 export const TEMP_VALUES_ORIGINS = "https://uaa.azurewebsites.net/api/weather/values-for-main-origins";
 export const WEATHER_OBSERVATION_COUNT_ORIGINS = "https://uaa.azurewebsites.net/api/weather/count-for-main-origins";
 export const JFK_DAILY_MEAN_TEMP = "https://uaa.azurewebsites.net/api/weather/jfk-mean-temp-daily"; 
+export const ORIGINS_DAILY_MEAN_TEMP = "https://uaa.azurewebsites.net/api/weather/mean-temp-daily-origin"
