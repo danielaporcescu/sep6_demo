@@ -39,19 +39,22 @@ function OriginDailyMeanTemperature({ data, isLoaded }) {
             label: "JFK",
             data: chartDataJfk,
             borderWidth: 1,
-            borderColor: "#D90429",
+            borderColor: "#5998C5",
+            backgroundColor: "#5998C580",
           },
           {
             label: "EWR",
             data: chartDataEwr,
             borderWidth: 1,
-            borderColor: "#4D8B31",
+            borderColor: "#FFDD4A",
+            backgroundColor: "#FFDD4A80",
           },
           {
             label: "LGA",
             data: chartDataLga,
             borderWidth: 1,
-            borderColor: "#FFC800",
+            borderColor: "#E03616",
+            backgroundColor: "#E0361680",
           },
         ],
       },
@@ -94,7 +97,7 @@ function OriginDailyMeanTemperature({ data, isLoaded }) {
 
   return (
     <div className="chartjs-wrapper">
-        <canvas ref={canvas} className="chartjs"></canvas>
+      <canvas ref={canvas} className="chartjs"></canvas>
     </div>
   );
 }
