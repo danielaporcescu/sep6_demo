@@ -3,7 +3,7 @@ import { Bar } from "react-chartjs-2";
 
 import classes from "./BarChart.module.css";
 
-import Spinner from "../elements/spinner";
+import Loader from "../elements/loader";
 
 function TotalFlightsPerMonthFromOrigins({ data, isLoaded }) {
   const [chartData, setChartData] = useState({});
@@ -60,7 +60,7 @@ function TotalFlightsPerMonthFromOrigins({ data, isLoaded }) {
   return (
     <div className={classes.BarChart}>
       {!isLoaded ? (
-        <Spinner />
+        <Loader />
       ) : (
         <Bar
           data={chartData}

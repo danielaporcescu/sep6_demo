@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 
-import Spinner from "../elements/spinner";
+import Loader from "../elements/loader";
 
 import classes from "./BarChart.module.css";
 
@@ -54,7 +54,7 @@ function TopTenDestinationsPerOrigin({ data, isLoaded }) {
   return (
     <div className={classes.BarChart}>
       {!isLoaded ? (
-        <Spinner />
+        <Loader />
       ) : (
         <Bar
           data={chartData}

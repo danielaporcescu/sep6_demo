@@ -14,7 +14,7 @@ import Paper from "@material-ui/core/Paper";
 
 import MeanAirTime from "../tables/mean-airtime";
 
-import Spinner from "../elements/spinner";
+import Loader from "../elements/loader";
 
 import { makeStyles } from "@material-ui/core/styles";
 

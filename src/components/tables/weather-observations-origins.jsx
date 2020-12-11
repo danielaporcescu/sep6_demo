@@ -8,7 +8,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
-import Spinner from "../elements/spinner";
+import Loader from "../elements/loader";
 
 import { useStyles, StyledTableCell, StyledTableRow } from "./table-styles";
 
@@ -32,7 +32,7 @@ function WeatherObsOrigins({ data, isLoaded }) {
   return (
     <div>
       {!isLoaded ? (
-        <Spinner />
+        <Loader />
       ) : (
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="customized table">

@@ -18,7 +18,7 @@ import { JFK_DAILY_MEAN_TEMP } from "../../helpers/url";
 import { TEMP_VALUES_ORIGINS } from "../../helpers/url";
 import {ORIGINS_DAILY_MEAN_TEMP} from "../../helpers/url"
 
-import Spinner from "../elements/spinner";
+import Loader from "../elements/loader";
 
 // import TotalFlightsPerMonth from "../charts/total-flights-month";
 // import TotalFlightsPerMonthFromOrigins from "../charts/total-flights-month-from-origin";
@@ -128,7 +128,7 @@ function WeatherPage() {
       {/* For each of the three origins, all temperature attributes */}
       {/* <div>
         {!isLoaded ? (
-          <Spinner />
+          < />
         ) : (
           <OriginsTemperatureAllValues
             data={allobsOrigins}
@@ -139,7 +139,7 @@ function WeatherPage() {
       {/* The temperature (in Celsius) at JFK.
       <div>
         {!isLoaded ? (
-          <Spinner />
+          < />
         ) : (
           <JFKDailyTemperature
             data={allobsOrigins.jfkValues}
@@ -150,7 +150,7 @@ function WeatherPage() {
       The daily mean temperature (in Celsius) for each origin in the same plot
       <div>
         {!isLoaded ? (
-          <Spinner />
+          < Loader/>
         ) : (
           <OriginDailyMeanTemperature
             data={originsMeanTemp}
