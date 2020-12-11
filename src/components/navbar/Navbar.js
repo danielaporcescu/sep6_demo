@@ -29,7 +29,7 @@ function Navbar() {
 
   return (
     <>
-    <BrowserRouter>
+    {/* <BrowserRouter> */}
       <nav className="navbar">
         <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
           UAA
@@ -88,7 +88,7 @@ function Navbar() {
         </ul>
         <Button />
       </nav>
-      </BrowserRouter>
+      {/* </BrowserRouter> */}
     </>
   );
 }
