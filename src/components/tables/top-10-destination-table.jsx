@@ -8,6 +8,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
+import Spinner from "../elements/spinner";
+
 import { useStyles, StyledTableCell, StyledTableRow } from "./table-styles";
 
 function Top10DestinationsTable({ data, isLoaded }) {
@@ -28,7 +30,7 @@ function Top10DestinationsTable({ data, isLoaded }) {
   return (
     <div>
       {!isLoaded ? (
-        <p>Loading Please wait...</p>
+        <Spinner />
       ) : (
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">

@@ -8,6 +8,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
+import Spinner from "../elements/spinner";
+
 import { useStyles, StyledTableCell, StyledTableRow } from "./table-styles";
 
 function WeatherObsOrigins({ data, isLoaded }) {
@@ -30,14 +32,16 @@ function WeatherObsOrigins({ data, isLoaded }) {
   return (
     <div>
       {!isLoaded ? (
-        <p>Loading Please wait...</p>
+        <Spinner />
       ) : (
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="customized table">
             <TableHead>
               <TableRow>
                 <StyledTableCell align="center">Origin</StyledTableCell>
-                <StyledTableCell align="center">Weather observations</StyledTableCell>
+                <StyledTableCell align="center">
+                  Weather observations
+                </StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -46,7 +50,9 @@ function WeatherObsOrigins({ data, isLoaded }) {
                   <StyledTableCell component="th" scope="row" align="center">
                     {row.origin}
                   </StyledTableCell>
-                  <StyledTableCell align="center">{row.weatherObs}</StyledTableCell>
+                  <StyledTableCell align="center">
+                    {row.weatherObs}
+                  </StyledTableCell>
                 </StyledTableRow>
               ))}
             </TableBody>

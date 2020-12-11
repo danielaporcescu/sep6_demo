@@ -8,7 +8,10 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 
+import Spinner from "../elements/spinner";
+
 import { useStyles, StyledTableCell, StyledTableRow } from "./table-styles";
+import { Box } from "@material-ui/core";
 
 function MeanAirTime({ data, isLoaded }) {
   const [tableData, setTableData] = useState([]);
@@ -30,7 +33,7 @@ function MeanAirTime({ data, isLoaded }) {
   return (
     <div>
       {!isLoaded ? (
-        <p>Loading Please wait...</p>
+        <Spinner />
       ) : (
         <TableContainer component={Paper}>
           <Table className={classes.table} aria-label="simple table">
