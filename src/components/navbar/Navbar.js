@@ -69,11 +69,11 @@ function Navbar() {
           </li>
           <li className="nav-item">
             <Link
-              to="/contact-us"
+              to="/weather-page"
               className="nav-links"
               onClick={closeMobileMenu}
             >
-              Contact Us
+              Weather
             </Link>
           </li>
           <li>

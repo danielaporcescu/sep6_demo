@@ -1,4 +1,4 @@
-import React, { useEffect, useRef} from "react";
+import React, { useEffect, useRef } from "react";
 import { Chart } from "react-chartjs-2";
 
 function JFKDailyMeanTemperature({ data, isLoaded }) {
@@ -8,7 +8,7 @@ function JFKDailyMeanTemperature({ data, isLoaded }) {
 
   if (isLoaded) {
     for (let dataObj of data) {
-      datainChart.push({x: new Date(dataObj.date), y: dataObj.value})
+      datainChart.push({ x: new Date(dataObj.date), y: dataObj.value });
     }
   }
 
@@ -23,6 +23,7 @@ function JFKDailyMeanTemperature({ data, isLoaded }) {
             data: datainChart,
             borderWidth: 2,
             borderColor: "#EE8434",
+            backgroundColor: "#EE843440",
           },
         ],
       },
@@ -30,10 +31,10 @@ function JFKDailyMeanTemperature({ data, isLoaded }) {
         scales: {
           xAxes: [
             {
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Date'
-                  },
+              scaleLabel: {
+                display: true,
+                labelString: "Date",
+              },
               type: "time",
               ticks: {
                 min: 1356994800000, // miliseconds equivalent to 1 Jan 2013
@@ -47,10 +48,10 @@ function JFKDailyMeanTemperature({ data, isLoaded }) {
           ],
           yAxes: [
             {
-                scaleLabel: {
-                    display: true,
-                    labelString: 'Daily mean temperature'
-                  },
+              scaleLabel: {
+                display: true,
+                labelString: "Daily mean temperature",
+              },
               ticks: {
                 beginAtZero: true,
               },

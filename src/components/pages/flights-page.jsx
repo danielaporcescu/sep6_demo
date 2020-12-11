@@ -41,50 +41,52 @@ function FlightsPage() {
 
   return (
     <div className={classes.root}>
-      <Grid item xs={6}>
-        <Paper className={classes.paper}>
-          The mean airtime of each of the origins in a table
-          <MeanAirTime data={result.meanAirTime} isLoaded={isLoaded} />
-          <div>
+      <Grid justify="space-around" container spacing={2}>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>
+            The mean airtime of each of the origins in a table
+            <MeanAirTime data={result.meanAirTime} isLoaded={isLoaded} />
+          </Paper>
+          <Paper className={classes.paper}>
             The top-10 destinations and how many flights were made to these
-          </div>
-          <Top10DestinationsTable
-            data={result.topTenDestinationsByFlights}
-            isLoaded={isLoaded}
-          />
-        </Paper>
-      </Grid>
-      <Grid item xs={6}>
-        <Paper className={classes.paper}>
-          <TotalFlightsPerMonth
-            data={result.flightsPerMonth}
-            isLoaded={isLoaded}
-          />
-        </Paper>
-        <Paper className={classes.paper}>
-          <TotalFlightsPerMonthFromOrigins
-            data={result.flightsPerMonthFromOrigins}
-            isLoaded={isLoaded}
-          />
-        </Paper>
-        <Paper className={classes.paper}>
-          <TotalFlightsPetMonthFromOriginStacked
-            data={result.flightsPerMonthFromOrigins}
-            isLoaded={isLoaded}
-          />
-        </Paper>
-        <Paper className={classes.paper}>
-          <TotalFlightsPetMonthFromOriginPercentage
-            data={result.flightsPerMonthFromOriginPercentage}
-            isLoaded={isLoaded}
-          />
-        </Paper>
-        <Paper className={classes.paper}>
-          <TopTenDestinationsPerOrigin
-            data={result.topTenDestinationsByFlightsFromOrigins}
-            isLoaded={isLoaded}
-          />
-        </Paper>
+            <Top10DestinationsTable
+              data={result.topTenDestinationsByFlights}
+              isLoaded={isLoaded}
+            />
+          </Paper>
+        </Grid>
+        <Grid item xs={6}>
+          <Paper className={classes.paper}>
+            <TotalFlightsPerMonth
+              data={result.flightsPerMonth}
+              isLoaded={isLoaded}
+            />
+          </Paper>
+          <Paper className={classes.paper}>
+            <TotalFlightsPerMonthFromOrigins
+              data={result.flightsPerMonthFromOrigins}
+              isLoaded={isLoaded}
+            />
+          </Paper>
+          <Paper className={classes.paper}>
+            <TotalFlightsPetMonthFromOriginStacked
+              data={result.flightsPerMonthFromOrigins}
+              isLoaded={isLoaded}
+            />
+          </Paper>
+          <Paper className={classes.paper}>
+            <TotalFlightsPetMonthFromOriginPercentage
+              data={result.flightsPerMonthFromOriginPercentage}
+              isLoaded={isLoaded}
+            />
+          </Paper>
+          <Paper className={classes.paper}>
+            <TopTenDestinationsPerOrigin
+              data={result.topTenDestinationsByFlightsFromOrigins}
+              isLoaded={isLoaded}
+            />
+          </Paper>
+        </Grid>
       </Grid>
     </div>
   );
@@ -95,10 +97,13 @@ export default FlightsPage;
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    padding: theme.spacing(0, 3),
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     textAlign: "center",
     color: theme.palette.text.secondary,
-  }
+    marginBottom: theme.spacing(2),
+    marginTop: theme.spacing(2),
+  },
 }));
