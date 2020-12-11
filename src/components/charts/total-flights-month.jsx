@@ -3,6 +3,8 @@ import { Bar } from "react-chartjs-2";
 
 import classes from "./BarChart.module.css";
 
+import Spinner from "../elements/spinner";
+
 function TotalFlightsPerMonth({ data, isLoaded }) {
   const [chartData, setChartData] = useState({});
 
@@ -33,42 +35,46 @@ function TotalFlightsPerMonth({ data, isLoaded }) {
 
   return (
     <div className={classes.BarChart}>
-      <Bar
-        data={chartData}
-        options={{
-          responsive: true,
-          title: { text: "Total flights per month", display: true },
-          scales: {
-            yAxes: [
-              {
-                scaleLabel: {
-                  display: true,
-                  labelString: 'Number of flights'
+      {!isLoaded ? (
+        <Spinner />
+      ) : (
+        <Bar
+          data={chartData}
+          options={{
+            responsive: true,
+            title: { text: "Total flights per month", display: true },
+            scales: {
+              yAxes: [
+                {
+                  scaleLabel: {
+                    display: true,
+                    labelString: "Number of flights",
+                  },
+                  ticks: {
+                    autoSkip: true,
+                    maxTicksLimit: 10,
+                    beginAtZero: true,
+                  },
+                  gridLines: {
+                    display: false,
+                  },
                 },
-                ticks: {
-                  autoSkip: true,
-                  maxTicksLimit: 10,
-                  beginAtZero: true,
+              ],
+              xAxes: [
+                {
+                  scaleLabel: {
+                    display: true,
+                    labelString: "Month",
+                  },
+                  gridLines: {
+                    display: false,
+                  },
                 },
-                gridLines: {
-                  display: false,
-                },
-              },
-            ],
-            xAxes: [
-              {
-                scaleLabel: {
-                  display: true,
-                  labelString: 'Month'
-                },
-                gridLines: {
-                  display: false,
-                },
-              },
-            ],
-          },
-        }}
-      />
+              ],
+            },
+          }}
+        />
+      )}
     </div>
   );
 }

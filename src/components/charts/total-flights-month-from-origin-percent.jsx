@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 
+import Spinner from "../elements/spinner";
+
 import classes from "./BarChart.module.css";
 
 function TotalFlightsPetMonthFromOriginPercentage({ data, isLoaded }) {
@@ -50,6 +52,9 @@ function TotalFlightsPetMonthFromOriginPercentage({ data, isLoaded }) {
   }, [isLoaded]);
   return (
     <div className={classes.BarChart}>
+      {!isLoaded ? (
+        <Spinner />
+      ) : (
       <Bar
         data={chartData}
         options={{
@@ -92,6 +97,7 @@ function TotalFlightsPetMonthFromOriginPercentage({ data, isLoaded }) {
           },
         }}
       />
+      )}
     </div>
   );
 }

@@ -94,7 +94,7 @@ function OriginsTemperatureAllValues({ data, isLoaded }) {
 
   return (
     <div className="chartjs-wrapper">
-      <canvas ref={canvas} className="chartjs"></canvas>
+        <canvas ref={canvas} className="chartjs"></canvas>
     </div>
   );
 }

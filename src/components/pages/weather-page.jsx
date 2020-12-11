@@ -15,6 +15,8 @@ import { WEATHER_OBSERVATION_COUNT_ORIGINS } from "../../helpers/url";
 import { JFK_DAILY_MEAN_TEMP } from "../../helpers/url";
 import { TEMP_VALUES_ORIGINS } from "../../helpers/url";
 
+import Spinner from "../elements/spinner";
+
 // import TotalFlightsPerMonth from "../charts/total-flights-month";
 // import TotalFlightsPerMonthFromOrigins from "../charts/total-flights-month-from-origin";
 // import TotalFlightsPetMonthFromOriginStacked from "../charts/total-flights-month-from-origin-stacked";
@@ -105,7 +107,7 @@ function WeatherPage() {
       For each of the three origins, all temperature attributes
       <div>
         {!isLoaded ? (
-          <p>Loading Please wait...</p>
+          <Spinner />
         ) : (
           <OriginsTemperatureAllValues
             data={allobsOrigins}
