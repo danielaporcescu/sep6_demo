@@ -122,5 +122,6 @@ const useStyles = makeStyles((theme) => ({
     color: theme.palette.text.secondary,
     marginBottom: theme.spacing(2),
     marginTop: theme.spacing(2),
+    backgroundColor: "#434456"
   },
 }));

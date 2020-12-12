@@ -5,10 +5,7 @@ import Loader from "../elements/loader";
 
 function TotalFlightsPerMonth({ data, isLoaded }) {
   const [chartData, setChartData] = useState({});
-
-  // let flights = useMemo(() => [], []);
-  // let months = useMemo(() => [], []);
-
+  
   useEffect(() => {
     let flights = [];
     let months = [];
