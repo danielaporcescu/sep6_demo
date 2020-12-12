@@ -22,23 +22,23 @@
     url("./assets/fonts/CircularStd-Bold.otf") format("opentype");
 }
 
+body
+{
+  min-height: 100%;
+  background-color: #17202e;
+}
+
 .home {
   background-position: center;
   background-size: cover;
-  background-color: #17202e;
 }
 
 .weather-page {
   background-position: center;
   background-size: cover;
-  background-color: #17202e;
 }
 
-.sign-up {
-  /* background-image: url("./assets/images/img-7.jpg"); */
+.planes {
   background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
 }

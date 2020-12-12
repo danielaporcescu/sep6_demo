@@ -131,6 +131,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
     marginTop: theme.spacing(2),
     backgroundColor: "#202a3b",
-    color: "#fefeff",
+    color: "#fefeff"
   },
 }));

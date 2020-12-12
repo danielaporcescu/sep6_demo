@@ -5,7 +5,7 @@ import Navbar from "./components/navbar/Navbar";
 import "./App.css";
 import Home from "./components/navbar/pages/Home";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Products from "./components/navbar/pages/Products";
+import Products from "./components/navbar/pages/Planes";
 import Weather from "./components/navbar/pages/WeatherPage";
 import SignUp from "./components/navbar/pages/SignUp";
 
@@ -16,8 +16,8 @@ defaults.global.defaultFontColor = '#fefeff';
 function App() {
   return (
     <>
-      <p>test</p>
-      <Router basename="/">
+      <p style={{color: "#fff"}}>test</p>
+      <Router>
         <Navbar />
         <Switch>
           <Route path="/" exact component={Home} />

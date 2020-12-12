@@ -8,7 +8,6 @@ export default function Weather() {
       <div className="weather-page">
         <WeatherPage />
       </div>
-      ;
     </>
   );
 }
