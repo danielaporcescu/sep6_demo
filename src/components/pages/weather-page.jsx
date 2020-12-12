@@ -39,7 +39,7 @@ function WeatherPage() {
   return (
     <div className={classes.root}>
       <Grid justify="space-around" container spacing={2}>
-        <Grid item xs={6}>
+        <Grid item md={6}>
           <Paper className={classes.paper}>
             <Box paddingBottom={2}>
               How many weather observations there are for the origins in a table
@@ -54,7 +54,7 @@ function WeatherPage() {
             )}
           </Paper>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item md={6}>
           <Paper className={classes.paper}>
             <Box paddingBottom={2}>
               The daily mean temperature (in Celsius) at JFK
@@ -69,7 +69,7 @@ function WeatherPage() {
             )}
           </Paper>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item md={12}>
           <Paper className={classes.paper}>
             <Box paddingBottom={2}>
               For each of the three origins, all temperature attributes
@@ -84,7 +84,7 @@ function WeatherPage() {
             )}
           </Paper>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item md={12}>
           <Paper className={classes.paper}>
             <Box paddingBottom={2}>The temperature (in Celsius) at JFK.</Box>
             {!isLoaded ? (
@@ -97,7 +97,7 @@ function WeatherPage() {
             )}
           </Paper>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item md={12}>
           <Paper className={classes.paper}>
             <Box paddingBottom={2}>
               The daily mean temperature (in Celsius) for each origin in the
