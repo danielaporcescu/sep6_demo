@@ -1,6 +1,13 @@
-import React from 'react';
-import '../../../App.css';
+import React from "react";
+import "../../../App.css";
+import Listing from "../../pages/planes-page"
 
 export default function Planes() {
-  return <h1 className='planes'>PRODUCTS</h1>;
+  return (
+    <>
+      <div className="planes">
+        <Listing />
+      </div>
+    </>
+  );
 }
