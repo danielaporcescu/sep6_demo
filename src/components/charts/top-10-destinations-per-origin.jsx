@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { Bar } from "react-chartjs-2";
 
 import Loader from "../elements/loader";
@@ -6,10 +6,10 @@ import Loader from "../elements/loader";
 function TopTenDestinationsPerOrigin({ data, isLoaded }) {
   const [chartData, setChartData] = useState({});
 
-  let airportNames = [];
-  let originEWR = [];
-  let originJFK = [];
-  let originLGA = [];
+  let airportNames = useMemo(() => [], []);
+  let originEWR = useMemo(() => [], []);
+  let originJFK = useMemo(() => [], []);
+  let originLGA = useMemo(() => [], []);
 
   if (isLoaded) {
     for (let dataObj of data) {
@@ -47,7 +47,7 @@ function TopTenDestinationsPerOrigin({ data, isLoaded }) {
         },
       ],
     });
-  }, [isLoaded]);
+  }, [isLoaded, airportNames, originEWR, originJFK, originLGA]);
 
   return (
     <div>

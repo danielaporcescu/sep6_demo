@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { Bar } from "react-chartjs-2";
 
 import Loader from "../elements/loader";
@@ -6,8 +6,8 @@ import Loader from "../elements/loader";
 function TotalFlightsPerMonth({ data, isLoaded }) {
   const [chartData, setChartData] = useState({});
 
-  let flights = [];
-  let months = [];
+  let flights = useMemo(() => [], []);
+  let months = useMemo(() => [], []);
 
   if (isLoaded) {
     for (const dataObj of data) {
@@ -29,7 +29,7 @@ function TotalFlightsPerMonth({ data, isLoaded }) {
         },
       ],
     });
-  }, [isLoaded]);
+  }, [isLoaded, months, flights]);
 
   return (
     <div>

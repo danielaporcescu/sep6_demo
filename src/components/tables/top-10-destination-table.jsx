@@ -22,7 +22,7 @@ function Top10DestinationsTable({ data, isLoaded }) {
       }
       setTableData(rows);
     }
-  }, [isLoaded]);
+  }, [isLoaded, data]);
 
   const classes = useStyles();
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { Bar } from "react-chartjs-2";
 
 import Loader from "../elements/loader";
@@ -6,10 +6,10 @@ import Loader from "../elements/loader";
 function TotalFlightsPetMonthFromOriginPercentage({ data, isLoaded }) {
   const [chartData, setChartData] = useState({});
 
-  let months = [];
-  let originEWR = [];
-  let originJFK = [];
-  let originLGA = [];
+  let months =  useMemo(() => [],[]);;
+  let originEWR = useMemo(() => [],[]);;
+  let originJFK =  useMemo(() => [],[]);;
+  let originLGA =  useMemo(() => [],[]);;
 
   if (isLoaded) {
     for (const dataObj of data) {
@@ -47,7 +47,7 @@ function TotalFlightsPetMonthFromOriginPercentage({ data, isLoaded }) {
         },
       ],
     });
-  }, [isLoaded]);
+  }, [isLoaded, months, originLGA, originEWR, originJFK]);
   return (
     <div>
       {!isLoaded ? (

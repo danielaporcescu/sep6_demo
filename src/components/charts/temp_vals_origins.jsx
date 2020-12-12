@@ -1,11 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useMemo } from "react";
 import { Chart } from "react-chartjs-2";
 
 function OriginsTemperatureAllValues({ data, isLoaded }) {
-
-  let chartDataJfk = [];
-  let chartDataEwr = [];
-  let chartDataLga = [];
+  let chartDataJfk = useMemo(() => [], []);
+  let chartDataEwr = useMemo(() => [], []);
+  let chartDataLga = useMemo(() => [], []);
 
   if (isLoaded) {
     for (let dataObj of data.jfkValues) {
@@ -38,7 +37,7 @@ function OriginsTemperatureAllValues({ data, isLoaded }) {
             label: "JFK",
             data: chartDataJfk,
             borderWidth: 1,
-            borderColor: "#D90429",
+            borderColor: "#AA7DCE",
           },
           {
             label: "EWR",
@@ -89,11 +88,11 @@ function OriginsTemperatureAllValues({ data, isLoaded }) {
     };
     const chart = new Chart(canvas.current.getContext("2d"), cfg);
     return () => chart.destroy();
-  }, [isLoaded]);
+  }, [isLoaded, chartDataJfk, chartDataLga, chartDataEwr]);
 
   return (
     <div className="chartjs-wrapper">
-        <canvas ref={canvas} className="chartjs"></canvas>
+      <canvas ref={canvas} className="chartjs"></canvas>
     </div>
   );
 }

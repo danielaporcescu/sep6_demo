@@ -1,11 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useMemo } from "react";
 import { Chart } from "react-chartjs-2";
 
 function OriginDailyMeanTemperature({ data, isLoaded }) {
-
-  let chartDataJfk = [];
-  let chartDataEwr = [];
-  let chartDataLga = [];
+  let chartDataJfk = useMemo(() => [], []);
+  let chartDataEwr = useMemo(() => [], []);
+  let chartDataLga = useMemo(() => [], []);
 
   if (isLoaded) {
     for (let dataObj of data.jfkValues) {
@@ -92,7 +91,7 @@ function OriginDailyMeanTemperature({ data, isLoaded }) {
     };
     const chart = new Chart(canvas.current.getContext("2d"), cfg);
     return () => chart.destroy();
-  }, [isLoaded]);
+  }, [isLoaded, chartDataEwr, chartDataJfk, chartDataLga]);
 
   return (
     <div className="chartjs-wrapper">

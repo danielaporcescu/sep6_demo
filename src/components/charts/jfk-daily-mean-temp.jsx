@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useMemo } from "react";
 import { Chart } from "react-chartjs-2";
 
 function JFKDailyMeanTemperature({ data, isLoaded }) {
 
-  let datainChart = [];
+  let datainChart = useMemo(() => [],[]);
 
   if (isLoaded) {
     for (let dataObj of data) {
@@ -61,7 +61,7 @@ function JFKDailyMeanTemperature({ data, isLoaded }) {
     };
     const chart = new Chart(canvas.current.getContext("2d"), cfg);
     return () => chart.destroy();
-  }, [isLoaded]);
+  }, [isLoaded, datainChart]);
 
   return (
     <div className="chartjs-wrapper">

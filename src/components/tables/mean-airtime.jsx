@@ -24,7 +24,7 @@ function MeanAirTime({ data, isLoaded }) {
       ];
       setTableData(rows);
     }
-  }, [isLoaded]);
+  }, [isLoaded, data]);
 
   const classes = useStyles();
 
