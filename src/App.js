@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <p>test</p>
-      <Router>
+      <Router basename="/">
         <Navbar />
         <Switch>
           <Route path="/" exact component={Home} />
