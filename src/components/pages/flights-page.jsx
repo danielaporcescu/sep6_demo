@@ -4,6 +4,7 @@ import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
+import { Box } from "@material-ui/core";
 
 import TotalFlightsPerMonth from "../charts/total-flights-month";
 import TotalFlightsPerMonthFromOrigins from "../charts/total-flights-month-from-origin";
@@ -15,7 +16,6 @@ import MeanAirTime from "../tables/mean-airtime";
 import MeanDepArrDelay from "../tables/mean-dep-arrival-delay";
 
 import { FLIGHTS_CHART_DATA } from "../../helpers/url";
-import { Box } from "@material-ui/core";
 
 function FlightsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -42,7 +42,7 @@ function FlightsPage() {
   return (
     <div className={classes.root}>
       <Grid justify="space-around" container spacing={2}>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
           <Paper className={classes.paper}>
             <Box paddingBottom={2}>
               The mean airtime of each of the origins in a table
@@ -65,7 +65,7 @@ function FlightsPage() {
             <MeanDepArrDelay data={result.originDelays} isLoaded={isLoaded} />
           </Paper>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={8}>
           <Paper className={classes.paper}>
             <TotalFlightsPerMonth
               data={result.flightsPerMonth}
@@ -115,6 +115,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
     marginTop: theme.spacing(2),
     backgroundColor: "#202a3b",
-    color: "#7a7e8b",
+    color: "#fefeff",
   },
 }));

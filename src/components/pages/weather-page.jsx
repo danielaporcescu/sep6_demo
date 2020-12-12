@@ -3,6 +3,7 @@ import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
+import { Box } from "@material-ui/core";
 
 import JFKDailyMeanTemperature from "../charts/jfk-daily-mean-temp";
 import OriginsTemperatureAllValues from "../charts/temp_vals_origins";
@@ -40,7 +41,9 @@ function WeatherPage() {
       <Grid justify="space-around" container spacing={2}>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            How many weather observations there are for the origins in a table
+            <Box paddingBottom={2}>
+              How many weather observations there are for the origins in a table
+            </Box>
             {!isLoaded ? (
               <Loader />
             ) : (
@@ -53,7 +56,9 @@ function WeatherPage() {
         </Grid>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            The daily mean temperature (in Celsius) at JFK
+            <Box paddingBottom={2}>
+              The daily mean temperature (in Celsius) at JFK
+            </Box>
             {!isLoaded ? (
               <Loader />
             ) : (
@@ -66,7 +71,9 @@ function WeatherPage() {
         </Grid>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            For each of the three origins, all temperature attributes
+            <Box paddingBottom={2}>
+              For each of the three origins, all temperature attributes
+            </Box>
             {!isLoaded ? (
               <Loader />
             ) : (
@@ -79,7 +86,7 @@ function WeatherPage() {
         </Grid>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            The temperature (in Celsius) at JFK.
+            <Box paddingBottom={2}>The temperature (in Celsius) at JFK.</Box>
             {!isLoaded ? (
               <Loader />
             ) : (
@@ -92,8 +99,10 @@ function WeatherPage() {
         </Grid>
         <Grid item xs={12}>
           <Paper className={classes.paper}>
-            The daily mean temperature (in Celsius) for each origin in the same
-            plot
+            <Box paddingBottom={2}>
+              The daily mean temperature (in Celsius) for each origin in the
+              same plot
+            </Box>
             {!isLoaded ? (
               <Loader />
             ) : (
@@ -119,9 +128,9 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(2),
     textAlign: "center",
-    color: theme.palette.text.secondary,
     marginBottom: theme.spacing(2),
     marginTop: theme.spacing(2),
-    backgroundColor: "#434456"
+    backgroundColor: "#202a3b",
+    color: "#fefeff",
   },
 }));
