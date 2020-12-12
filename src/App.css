@@ -2,7 +2,25 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "PT Sans", sans-serif;
+  /* font-family: "PT Sans", sans-serif;  */
+  font-family: "basefont-medium"
+}
+@font-face {
+  font-family: "basefont-regular";
+  src: local("basefont-regular"),
+    url("./assets/fonts/CircularStd-Book.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "basefont-medium";
+  src: local("basefont-medium"),
+    url("./assets/fonts/CircularStd-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "basefont-bold";
+  src: local("basefont-bold"),
+    url("./assets/fonts/CircularStd-Bold.otf") format("opentype");
 }
 
 .home,
@@ -23,7 +41,7 @@
   /* background-image: url('./assets/images/img-1.jpg'); */
   background-position: center;
   background-size: cover;
-  background-color: #17212e;
+  background-color: #17202e;
   /* background-repeat: no-repeat; */
   /* color: #fff; */
   /* font-size: 10px; */

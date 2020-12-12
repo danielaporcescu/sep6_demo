@@ -15,6 +15,7 @@ import MeanAirTime from "../tables/mean-airtime";
 import MeanDepArrDelay from "../tables/mean-dep-arrival-delay";
 
 import { FLIGHTS_CHART_DATA } from "../../helpers/url";
+import { Box } from "@material-ui/core";
 
 function FlightsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -43,18 +44,24 @@ function FlightsPage() {
       <Grid justify="space-around" container spacing={2}>
         <Grid item xs={6}>
           <Paper className={classes.paper}>
-            The mean airtime of each of the origins in a table
+            <Box paddingBottom={2}>
+              The mean airtime of each of the origins in a table
+            </Box>
             <MeanAirTime data={result.meanAirTime} isLoaded={isLoaded} />
           </Paper>
           <Paper className={classes.paper}>
-            The top-10 destinations and how many flights were made to these
+            <Box paddingBottom={2}>
+              The top-10 destinations and how many flights were made to these
+            </Box>
             <Top10DestinationsTable
               data={result.topTenDestinationsByFlights}
               isLoaded={isLoaded}
             />
           </Paper>
           <Paper className={classes.paper}>
-            Mean departure and arrival delay for each origin in a table
+            <Box paddingBottom={2}>
+              Mean departure and arrival delay for each origin in a table
+            </Box>
             <MeanDepArrDelay data={result.originDelays} isLoaded={isLoaded} />
           </Paper>
         </Grid>
@@ -105,9 +112,9 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     padding: theme.spacing(3),
     textAlign: "center",
-    color: theme.palette.text.secondary,
     marginBottom: theme.spacing(2),
     marginTop: theme.spacing(2),
-    backgroundColor: '#131924'
+    backgroundColor: "#202a3b",
+    color: "#7a7e8b",
   },
 }));
