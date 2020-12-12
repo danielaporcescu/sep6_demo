@@ -30,7 +30,6 @@ function FlightsPage() {
         setIsLoaded(true);
       })
       .catch((err) => {
-        console.log(err);
         setIsLoaded(true);
       });
   };

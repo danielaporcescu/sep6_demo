@@ -27,6 +27,7 @@ function JFKDailyTemperature({ data, isLoaded }) {
         ],
       },
       options: {
+        events: [],
         scales: {
           xAxes: [
             {

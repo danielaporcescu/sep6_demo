@@ -54,6 +54,7 @@ function OriginsTemperatureAllValues({ data, isLoaded }) {
         ],
       },
       options: {
+        events: [],
         scales: {
           xAxes: [
             {

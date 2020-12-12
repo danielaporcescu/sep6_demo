@@ -24,11 +24,9 @@ function WeatherPage() {
       .get(WEATHER_DATA)
       .then((res) => {
         setResult(res.data);
-        console.log(res.data);
         setIsLoaded(true);
       })
       .catch((err) => {
-        console.log(err);
         setIsLoaded(true);
       });
   };
