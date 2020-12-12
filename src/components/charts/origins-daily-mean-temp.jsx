@@ -1,34 +1,33 @@
-import React, { useEffect, useRef, useMemo } from "react";
+import React, { useEffect, useRef } from "react";
 import { Chart } from "react-chartjs-2";
 
 function OriginDailyMeanTemperature({ data, isLoaded }) {
-  let chartDataJfk = useMemo(() => [], []);
-  let chartDataEwr = useMemo(() => [], []);
-  let chartDataLga = useMemo(() => [], []);
-
-  if (isLoaded) {
-    for (let dataObj of data.jfkValues) {
-      chartDataJfk.push({
-        x: new Date(dataObj.date),
-        y: dataObj.value,
-      });
-    }
-    for (let dataObj of data.ewrValues) {
-      chartDataEwr.push({
-        x: new Date(dataObj.date),
-        y: dataObj.value,
-      });
-    }
-    for (let dataObj of data.lgaValues) {
-      chartDataLga.push({
-        x: new Date(dataObj.date),
-        y: dataObj.value,
-      });
-    }
-  }
-
   const canvas = useRef(null);
   useEffect(() => {
+    let chartDataJfk = [];
+    let chartDataEwr = [];
+    let chartDataLga = [];
+
+    if (isLoaded) {
+      for (let dataObj of data.jfkValues) {
+        chartDataJfk.push({
+          x: new Date(dataObj.date),
+          y: dataObj.value,
+        });
+      }
+      for (let dataObj of data.ewrValues) {
+        chartDataEwr.push({
+          x: new Date(dataObj.date),
+          y: dataObj.value,
+        });
+      }
+      for (let dataObj of data.lgaValues) {
+        chartDataLga.push({
+          x: new Date(dataObj.date),
+          y: dataObj.value,
+        });
+      }
+    }
     const cfg = {
       type: "scatter",
       data: {
@@ -91,7 +90,7 @@ function OriginDailyMeanTemperature({ data, isLoaded }) {
     };
     const chart = new Chart(canvas.current.getContext("2d"), cfg);
     return () => chart.destroy();
-  }, [isLoaded, chartDataEwr, chartDataJfk, chartDataLga]);
+  }, [isLoaded, data]);
 
   return (
     <div className="chartjs-wrapper">

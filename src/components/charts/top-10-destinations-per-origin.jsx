@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 
 import Loader from "../elements/loader";
@@ -6,21 +6,20 @@ import Loader from "../elements/loader";
 function TopTenDestinationsPerOrigin({ data, isLoaded }) {
   const [chartData, setChartData] = useState({});
 
-  let airportNames = useMemo(() => [], []);
-  let originEWR = useMemo(() => [], []);
-  let originJFK = useMemo(() => [], []);
-  let originLGA = useMemo(() => [], []);
-
-  if (isLoaded) {
-    for (let dataObj of data) {
-      airportNames.push(dataObj.airportName);
-      originEWR.push(parseInt(dataObj.ewr));
-      originJFK.push(parseInt(dataObj.jfk));
-      originLGA.push(parseInt(dataObj.lga));
-    }
-  }
-
   useEffect(() => {
+    let airportNames = [];
+    let originEWR = [];
+    let originJFK = [];
+    let originLGA = [];
+
+    if (isLoaded) {
+      for (let dataObj of data) {
+        airportNames.push(dataObj.airportName);
+        originEWR.push(parseInt(dataObj.ewr));
+        originJFK.push(parseInt(dataObj.jfk));
+        originLGA.push(parseInt(dataObj.lga));
+      }
+    }
     setChartData({
       labels: airportNames,
       datasets: [
@@ -47,7 +46,7 @@ function TopTenDestinationsPerOrigin({ data, isLoaded }) {
         },
       ],
     });
-  }, [isLoaded, airportNames, originEWR, originJFK, originLGA]);
+  }, [isLoaded, data]);
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 
 import Loader from "../elements/loader";
@@ -6,21 +6,21 @@ import Loader from "../elements/loader";
 function TotalFlightsPetMonthFromOriginStacked({ data, isLoaded }) {
   const [chartData, setChartData] = useState({});
 
-  let months = useMemo(() => [], []);
-  let originEWR = useMemo(() => [], []);
-  let originJFK = useMemo(() => [], []);
-  let originLGA = useMemo(() => [], []);
-
-  if (isLoaded) {
-    for (const dataObj of data) {
-      months.push(parseInt(dataObj.month));
-      originEWR.push(parseInt(dataObj.ewr));
-      originJFK.push(parseInt(dataObj.jfk));
-      originLGA.push(parseInt(dataObj.lga));
-    }
-  }
-
+  
   useEffect(() => {
+    let months = [];
+    let originEWR = [];
+    let originJFK = [];
+    let originLGA = [];
+  
+    if (isLoaded) {
+      for (const dataObj of data) {
+        months.push(parseInt(dataObj.month));
+        originEWR.push(parseInt(dataObj.ewr));
+        originJFK.push(parseInt(dataObj.jfk));
+        originLGA.push(parseInt(dataObj.lga));
+      }
+    }
     setChartData({
       labels: months,
       datasets: [
@@ -47,7 +47,7 @@ function TotalFlightsPetMonthFromOriginStacked({ data, isLoaded }) {
         },
       ],
     });
-  }, [isLoaded, months, originJFK, originLGA, originEWR]);
+  }, [isLoaded, data]);
 
   return (
     <div>

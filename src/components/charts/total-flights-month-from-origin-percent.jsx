@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 import { Bar } from "react-chartjs-2";
 
 import Loader from "../elements/loader";
@@ -6,21 +6,21 @@ import Loader from "../elements/loader";
 function TotalFlightsPetMonthFromOriginPercentage({ data, isLoaded }) {
   const [chartData, setChartData] = useState({});
 
-  let months =  useMemo(() => [],[]);;
-  let originEWR = useMemo(() => [],[]);;
-  let originJFK =  useMemo(() => [],[]);;
-  let originLGA =  useMemo(() => [],[]);;
-
-  if (isLoaded) {
-    for (const dataObj of data) {
-      months.push(parseInt(dataObj.month));
-      originEWR.push((dataObj.ewr));
-      originJFK.push((dataObj.jfk));
-      originLGA.push((dataObj.lga));
-    }
-  }
-
+  
   useEffect(() => {
+    let months =  [];
+    let originEWR = [];
+    let originJFK =  [];
+    let originLGA =  [];
+  
+    if (isLoaded) {
+      for (const dataObj of data) {
+        months.push(parseInt(dataObj.month));
+        originEWR.push((dataObj.ewr));
+        originJFK.push((dataObj.jfk));
+        originLGA.push((dataObj.lga));
+      }
+    }
     setChartData({
       labels: months,
       datasets: [
@@ -47,7 +47,7 @@ function TotalFlightsPetMonthFromOriginPercentage({ data, isLoaded }) {
         },
       ],
     });
-  }, [isLoaded, months, originLGA, originEWR, originJFK]);
+  }, [isLoaded, data]);
   return (
     <div>
       {!isLoaded ? (
