@@ -7,7 +7,7 @@ describe ('complete e to e test', () => {
     cy.visit('/')
 
     cy.contains("UAA")
-    cy.contains("Home")
+    cy.contains("Flights")
     .click
     cy.contains("Weather").click
     cy.get(Table)
