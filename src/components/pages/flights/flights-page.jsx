@@ -41,7 +41,7 @@ function FlightsPage() {
             <Box paddingBottom={2}>
               The mean airtime of each of the origins in a table
             </Box>
-            <MeanAirTime data={result.meanAirTime} isLoaded={isLoaded} />
+            <MeanAirTime data-testid='meanAirTime'data={result.meanAirTime} isLoaded={isLoaded} />
           </Paper>
           <Paper className={classes.paper}>
             <Box paddingBottom={2}>

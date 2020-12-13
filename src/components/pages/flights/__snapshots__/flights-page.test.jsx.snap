@@ -22,6 +22,7 @@ exports[`Renders correctly FlightsPage 1`] = `
           The mean airtime of each of the origins in a table
         </Styled(MuiBox)>
         <MeanAirTime
+          data-testid="meanAirTime"
           isLoaded={false}
         />
       </WithStyles(ForwardRef(Paper))>
