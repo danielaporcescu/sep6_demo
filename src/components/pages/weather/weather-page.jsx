@@ -4,15 +4,15 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { Box } from "@material-ui/core";
 
-import JFKDailyMeanTemperature from "../charts/jfk-daily-mean-temp";
-import OriginsTemperatureAllValues from "../charts/temp_vals_origins";
-import JFKDailyTemperature from "../charts/jfk-daily-temp";
-import OriginDailyMeanTemperature from "../charts/origins-daily-mean-temp";
-import WeatherObsOrigins from "../tables/weather-observations-origins";
+import JFKDailyMeanTemperature from "../../charts/jfk-daily-mean-temp";
+import OriginsTemperatureAllValues from "../../charts/temp_vals_origins";
+import JFKDailyTemperature from "../../charts/jfk-daily-temp";
+import OriginDailyMeanTemperature from "../../charts/origins-daily-mean-temp";
+import WeatherObsOrigins from "../../tables/weather-observations-origins";
 
-import { getWeatherData } from "../services/flights-service";
+import { getWeatherData } from "../../services/flights-service";
 
-import Loader from "../elements/loader";
+import Loader from "../../elements/loader";
 
 function WeatherPage() {
   const [isLoaded, setIsLoaded] = useState(false);

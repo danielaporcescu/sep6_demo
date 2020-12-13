@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders correctly FlightsPage 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    justify="space-around"
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      md={6}
+    >
+      <WithStyles(ForwardRef(Paper))
+        className="makeStyles-paper-2"
+      >
+        <Styled(MuiBox)
+          paddingBottom={2}
+        >
+          How many weather observations there are for the origins in a table
+        </Styled(MuiBox)>
+        <Loader />
+      </WithStyles(ForwardRef(Paper))>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      md={6}
+    >
+      <WithStyles(ForwardRef(Paper))
+        className="makeStyles-paper-2"
+      >
+        <Styled(MuiBox)
+          paddingBottom={2}
+        >
+          The daily mean temperature (in Celsius) at JFK
+        </Styled(MuiBox)>
+        <Loader />
+      </WithStyles(ForwardRef(Paper))>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      md={12}
+    >
+      <WithStyles(ForwardRef(Paper))
+        className="makeStyles-paper-2"
+      >
+        <Styled(MuiBox)
+          paddingBottom={2}
+        >
+          For each of the three origins, all temperature attributes
+        </Styled(MuiBox)>
+        <Loader />
+      </WithStyles(ForwardRef(Paper))>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      md={12}
+    >
+      <WithStyles(ForwardRef(Paper))
+        className="makeStyles-paper-2"
+      >
+        <Styled(MuiBox)
+          paddingBottom={2}
+        >
+          The temperature (in Celsius) at JFK.
+        </Styled(MuiBox)>
+        <Loader />
+      </WithStyles(ForwardRef(Paper))>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      md={12}
+    >
+      <WithStyles(ForwardRef(Paper))
+        className="makeStyles-paper-2"
+      >
+        <Styled(MuiBox)
+          paddingBottom={2}
+        >
+          The daily mean temperature (in Celsius) for each origin in the same plot
+        </Styled(MuiBox)>
+        <Loader />
+      </WithStyles(ForwardRef(Paper))>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+</div>
+`;

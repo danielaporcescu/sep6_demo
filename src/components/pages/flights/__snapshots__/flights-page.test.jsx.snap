@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders correctly FlightsPage 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    justify="space-around"
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      md={4}
+    >
+      <WithStyles(ForwardRef(Paper))
+        className="makeStyles-paper-2"
+      >
+        <Styled(MuiBox)
+          paddingBottom={2}
+        >
+          The mean airtime of each of the origins in a table
+        </Styled(MuiBox)>
+        <MeanAirTime
+          isLoaded={false}
+        />
+      </WithStyles(ForwardRef(Paper))>
+      <WithStyles(ForwardRef(Paper))
+        className="makeStyles-paper-2"
+      >
+        <Styled(MuiBox)
+          paddingBottom={2}
+        >
+          The top-10 destinations and how many flights were made to these
+        </Styled(MuiBox)>
+        <Top10DestinationsTable
+          isLoaded={false}
+        />
+      </WithStyles(ForwardRef(Paper))>
+      <WithStyles(ForwardRef(Paper))
+        className="makeStyles-paper-2"
+      >
+        <Styled(MuiBox)
+          paddingBottom={2}
+        >
+          Mean departure and arrival delay for each origin in a table
+        </Styled(MuiBox)>
+        <MeanDepArrDelay
+          isLoaded={false}
+        />
+      </WithStyles(ForwardRef(Paper))>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      md={8}
+    >
+      <WithStyles(ForwardRef(Paper))
+        className="makeStyles-paper-2"
+      >
+        <TotalFlightsPerMonth
+          isLoaded={false}
+        />
+      </WithStyles(ForwardRef(Paper))>
+      <WithStyles(ForwardRef(Paper))
+        className="makeStyles-paper-2"
+      >
+        <TotalFlightsPerMonthFromOrigins
+          isLoaded={false}
+        />
+      </WithStyles(ForwardRef(Paper))>
+      <WithStyles(ForwardRef(Paper))
+        className="makeStyles-paper-2"
+      >
+        <TotalFlightsPetMonthFromOriginStacked
+          isLoaded={false}
+        />
+      </WithStyles(ForwardRef(Paper))>
+      <WithStyles(ForwardRef(Paper))
+        className="makeStyles-paper-2"
+      >
+        <TotalFlightsPetMonthFromOriginPercentage
+          isLoaded={false}
+        />
+      </WithStyles(ForwardRef(Paper))>
+      <WithStyles(ForwardRef(Paper))
+        className="makeStyles-paper-2"
+      >
+        <TopTenDestinationsPerOrigin
+          isLoaded={false}
+        />
+      </WithStyles(ForwardRef(Paper))>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+</div>
+`;

@@ -5,13 +5,13 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { Box } from "@material-ui/core";
 
-import ManufacturesMore200Planes from "../charts/manufactureres-more-200-planes";
-import FlightsPer200Manufacturers from "../tables/flights_per_manufacturer";
-import PlanesAirbus from "../tables/planes_airbus";
+import ManufacturesMore200Planes from "../../charts/manufactureres-more-200-planes";
+import FlightsPer200Manufacturers from "../../tables/flights_per_manufacturer";
+import PlanesAirbus from "../../tables/planes_airbus";
 
-import { getPlanesData } from "../services/flights-service";
+import { getPlanesData } from "../../services/flights-service";
 
-import Loader from "../elements/loader";
+import Loader from "../../elements/loader";
 
 function Listing() {
   const [isLoaded, setIsLoaded] = useState(false);

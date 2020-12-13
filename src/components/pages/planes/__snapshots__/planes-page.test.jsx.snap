@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders correctly FlightsPage 1`] = `
+<div
+  className="makeStyles-root-1"
+>
+  <WithStyles(ForwardRef(Grid))
+    container={true}
+    justify="space-around"
+    spacing={2}
+  >
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      md={6}
+    >
+      <WithStyles(ForwardRef(Paper))
+        className="makeStyles-paper-2"
+      >
+        <Styled(MuiBox)
+          paddingBottom={2}
+        >
+          The manufacturers that have more than 200 planes
+        </Styled(MuiBox)>
+        <Loader />
+      </WithStyles(ForwardRef(Paper))>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      md={6}
+    >
+      <WithStyles(ForwardRef(Paper))
+        className="makeStyles-paper-2"
+      >
+        <Styled(MuiBox)
+          paddingBottom={2}
+        >
+          The number of flights each manufacturer with more than 200 planes are responsible for
+        </Styled(MuiBox)>
+        <Loader />
+      </WithStyles(ForwardRef(Paper))>
+    </WithStyles(ForwardRef(Grid))>
+    <WithStyles(ForwardRef(Grid))
+      item={true}
+      md={12}
+    >
+      <WithStyles(ForwardRef(Paper))
+        className="makeStyles-paper-2"
+      >
+        <Styled(MuiBox)
+          paddingBottom={2}
+        >
+          The number of planes of each Airbus Model
+        </Styled(MuiBox)>
+        <Loader />
+      </WithStyles(ForwardRef(Paper))>
+    </WithStyles(ForwardRef(Grid))>
+  </WithStyles(ForwardRef(Grid))>
+</div>
+`;

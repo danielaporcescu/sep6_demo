@@ -5,16 +5,16 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { Box } from "@material-ui/core";
 
-import TotalFlightsPerMonth from "../charts/total-flights-month";
-import TotalFlightsPerMonthFromOrigins from "../charts/total-flights-month-from-origin";
-import TotalFlightsPetMonthFromOriginStacked from "../charts/total-flights-month-from-origin-stacked";
-import TotalFlightsPetMonthFromOriginPercentage from "../charts/total-flights-month-from-origin-percent";
-import TopTenDestinationsPerOrigin from "../charts/top-10-destinations-per-origin";
-import Top10DestinationsTable from "../tables/top-10-destination-table";
-import MeanAirTime from "../tables/mean-airtime";
-import MeanDepArrDelay from "../tables/mean-dep-arrival-delay";
+import TotalFlightsPerMonth from "../../charts/total-flights-month";
+import TotalFlightsPerMonthFromOrigins from "../../charts/total-flights-month-from-origin";
+import TotalFlightsPetMonthFromOriginStacked from "../../charts/total-flights-month-from-origin-stacked";
+import TotalFlightsPetMonthFromOriginPercentage from "../../charts/total-flights-month-from-origin-percent";
+import TopTenDestinationsPerOrigin from "../../charts/top-10-destinations-per-origin";
+import Top10DestinationsTable from "../../tables/top-10-destination-table";
+import MeanAirTime from "../../tables/mean-airtime";
+import MeanDepArrDelay from "../../tables/mean-dep-arrival-delay";
 
-import { getFlightsData } from "../services/flights-service";
+import { getFlightsData } from "../../services/flights-service";
 
 function FlightsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
