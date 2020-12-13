@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
@@ -11,7 +10,8 @@ import JFKDailyTemperature from "../charts/jfk-daily-temp";
 import OriginDailyMeanTemperature from "../charts/origins-daily-mean-temp";
 import WeatherObsOrigins from "../tables/weather-observations-origins";
 
-import { WEATHER_DATA } from "../../helpers/url";
+import { getWeatherData } from "../services/flights-service";
+
 import Loader from "../elements/loader";
 
 function WeatherPage() {
@@ -20,9 +20,8 @@ function WeatherPage() {
 
   const classes = useStyles();
 
-  const getWeatherData = () => {
-    axios
-      .get(WEATHER_DATA)
+  useEffect(() => {
+    getWeatherData()
       .then((res) => {
         setResult(res.data);
         setIsLoaded(true);
@@ -30,10 +29,6 @@ function WeatherPage() {
       .catch((err) => {
         setIsLoaded(true);
       });
-  };
-
-  useEffect(() => {
-    getWeatherData();
   }, [isLoaded]);
 
   return (
@@ -131,6 +126,6 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(2),
     marginTop: theme.spacing(2),
     backgroundColor: "#202a3b",
-    color: "#fefeff"
+    color: "#fefeff",
   },
 }));

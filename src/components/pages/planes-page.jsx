@@ -9,11 +9,8 @@ import ManufacturesMore200Planes from "../charts/manufactureres-more-200-planes"
 import FlightsPer200Manufacturers from "../tables/flights_per_manufacturer";
 import PlanesAirbus from "../tables/planes_airbus";
 
-import {
-  PLANES_MORE_200,
-  PLANES_PER_AIRBUS_MODEL,
-  FLIGHTS_PER_MANUFACTURER,
-} from "../../helpers/url";
+import { getPlanesData } from "../services/flights-service";
+
 import Loader from "../elements/loader";
 
 function Listing() {
@@ -25,12 +22,7 @@ function Listing() {
   const classes = useStyles();
 
   useEffect(() => {
-    const requestPlanes200 = axios.get(PLANES_MORE_200);
-    const requestPlanesAirbus = axios.get(PLANES_PER_AIRBUS_MODEL);
-    const requestFlights = axios.get(FLIGHTS_PER_MANUFACTURER);
-
-    axios
-      .all([requestPlanes200, requestPlanesAirbus, requestFlights])
+    getPlanesData()
       .then(
         axios.spread((...responses) => {
           const responsePlanes200 = responses[0];

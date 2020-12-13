@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
@@ -15,7 +14,7 @@ import Top10DestinationsTable from "../tables/top-10-destination-table";
 import MeanAirTime from "../tables/mean-airtime";
 import MeanDepArrDelay from "../tables/mean-dep-arrival-delay";
 
-import { FLIGHTS_CHART_DATA } from "../../helpers/url";
+import { getFlightsData } from "../services/flights-service";
 
 function FlightsPage() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -23,9 +22,8 @@ function FlightsPage() {
 
   const classes = useStyles();
 
-  const getFlights = () => {
-    axios
-      .get(FLIGHTS_CHART_DATA)
+  useEffect(() => {
+    getFlightsData()
       .then((res) => {
         setResult(res.data);
         setIsLoaded(true);
@@ -33,10 +31,6 @@ function FlightsPage() {
       .catch((err) => {
         setIsLoaded(true);
       });
-  };
-
-  useEffect(() => {
-    getFlights();
   }, [isLoaded]);
 
   return (
