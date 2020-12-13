@@ -14,7 +14,6 @@ defaults.global.defaultFontColor = '#fefeff';
 function App() {
   return (
     <>
-      <p style={{color: "#fff"}}>test</p>
       <Router>
         <Navbar />
         <Switch>
