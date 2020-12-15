@@ -41,7 +41,7 @@ function MeanDepArrDelay({ data, isLoaded }) {
                 <StyledTableCell align="center">
                   Departure Delay
                 </StyledTableCell>
-                <StyledTableCell align="center">ArrivalDelay</StyledTableCell>
+                <StyledTableCell align="center">Arrival Delay</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
